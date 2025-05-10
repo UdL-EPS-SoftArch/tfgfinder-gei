@@ -1,0 +1,44 @@
+<h2 class="mb-4">Interest List</h2>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Interest Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let proposal of proposals">
+    <td>{{ proposal.title }}</td>
+
+    <td>
+      <span *ngIf="acceptedProposalIds.includes(proposal.id)" class="text-success">✔ Accepted</span>
+      <span *ngIf="rejectedProposalIds.includes(proposal.id)" class="text-danger">✖ Rejected</span>
+      <span *ngIf="!acceptedProposalIds.includes(proposal.id) && !rejectedProposalIds.includes(proposal.id)">
+          Not Reviewed
+        </span>
+    </td>
+
+    <td>
+      <button class="btn btn-outline-primary btn-sm"
+              [disabled]="isInterested(proposal.id)"
+              (click)="showInterest(proposal.id)">
+        {{ isInterested(proposal.id) ? 'Interested' : 'Show Interest' }}
+      </button>
+
+      <button class="btn btn-outline-success btn-sm"
+              *ngIf="!acceptedProposalIds.includes(proposal.id) && !rejectedProposalIds.includes(proposal.id)"
+              (click)="acceptInterest(proposal.id)">
+        Accept
+      </button>
+
+      <button class="btn btn-outline-danger btn-sm"
+              *ngIf="!acceptedProposalIds.includes(proposal.id) && !rejectedProposalIds.includes(proposal.id)"
+              (click)="rejectInterest(proposal.id)">
+        Reject
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
