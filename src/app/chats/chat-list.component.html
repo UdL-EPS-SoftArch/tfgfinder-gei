@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="container mt-3">
+  <h3>Xats</h3>
+  <ul class="list-group">
+    <li *ngFor="let chat of chats" class="list-group-item" (click)="openChat(chat.id)">
+      Xat ID: {{ chat.id }}
+    </li>
+  </ul>
+</div>
+
+<body>
+
+</body>
+</html>
