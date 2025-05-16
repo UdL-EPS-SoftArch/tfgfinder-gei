@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <h2>Interests</h2>
+
+  <div *ngIf="!loading && !error && interests.length > 0" class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+
+          <th>Submitted By</th>
+          <th>Proposal</th>
+          <th>Submitted On</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let interest of interests">
+          <td>{{ interest.who?.username || '-' }}</td>
+          <td>{{ interest.what?.title || '-' }}</td>
+          <td>{{ interest.when | date:'medium' }}</td>
+          <td>{{ interest.status }}</td>
+          <td>
+            <button (click)="accept(interest)" class="btn btn-success btn-sm me-2"
+                    [disabled]="interest.status === 'ACCEPTED'">
+              <i class="fas fa-check"></i> Accept
+            </button>
+            <button (click)="reject(interest)" class="btn btn-danger btn-sm"
+                    [disabled]="interest.status === 'REJECTED'">
+              <i class="fas fa-times"></i> Reject
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
