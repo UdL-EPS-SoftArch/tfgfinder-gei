@@ -1,0 +1,19 @@
+
+<div class="card mb-1" *ngFor="let proposal of proposals">
+  <div class="card-block row m-1 col-12">
+    <div class="card-body row align-items-center">
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Title</h6>
+        <a class="card-text" [routerLink]="['/proposals', proposal.id]">{{proposal.title}}</a>
+      </div>
+      <div class="col-6 mt-1">
+        <h6 class="card-subtitle text-muted">Status</h6>
+        <p class="card-text">{{proposal.status}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngb-pagination class="d-flex justify-content-center"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalProposals"
+                (pageChange)="changePage()"></ngb-pagination>
