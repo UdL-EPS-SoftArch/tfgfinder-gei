@@ -1,19 +1,24 @@
-<div class="card mb-4">
-  <div class="card-block">
-    <h4 class="card-title col-md-12 p-3">{{proposal.title}}</h4>
-    <div class="card-body row m-1">
-      <div class="col-md-4 p-3">
-        <h6 class="card-subtitle text-muted">Owner</h6>
-        <p class="card-text">{{proposal.owner}}</p>
-      </div>
-      <div class="col-md-4 p-3">
-        <h6 class="card-subtitle text-muted">Categoties</h6>
-        <p class="card-text">{{proposal.categories}}</p>
-      </div>
-      <div class="col-md-4 p-3">
-        <h6 class="card-subtitle text-muted">ID</h6>
-        <p class="card-text">{{proposal.id}}</p>
+<main role="main" class="container mt-5">
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="proposal" class="card mb-4">
+    <div class="card-block">
+      <h4 class="card-title col-md-12 p-3">{{ proposal.title }}</h4>
+      <div class="card-body row m-1">
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Owner</h6>
+          <p class="card-text">{{ proposal.owner }}</p>
+        </div>
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Categories</h6>
+          <p class="card-text">{{ proposal.categories.join(', ') }}</p>
+        </div>
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">ID</h6>
+          <p class="card-text">{{ proposal.id }}</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</main>

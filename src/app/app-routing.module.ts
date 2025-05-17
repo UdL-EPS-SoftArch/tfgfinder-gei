@@ -10,6 +10,7 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import {ProposalListComponent} from "./proposal/proposal-list/proposal-list.component";
 import {ProposalDetailComponent} from "./proposal/proposal-detail/proposal-detail.component";
+import {ProposalCreateComponent} from "./proposal/proposal-create/proposal-create.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -17,9 +18,9 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditComponent, canActivate: [LoggedInGuard]},
   { path: 'users/:id', component: UserDetailComponent, canActivate: [LoggedInGuard]},
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
-  { path: 'proposals', component: ProposalListComponent, canActivate: [LoggedInGuard]},
-  { path: 'proposals/:id', component: ProposalDetailComponent, canActivate: [LoggedInGuard]},
-  { path: 'proposals/create', component: ProposalCreateComponent, canActivate: [LoggedInGuard]},
+  { path: 'proposals', component: ProposalListComponent },
+  { path: 'proposals/create', component: ProposalCreateComponent, canActivate: [LoggedInGuard] }, // Specific route first
+  { path: 'proposals/:id', component: ProposalDetailComponent },
 
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},

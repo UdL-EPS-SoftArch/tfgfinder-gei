@@ -10,12 +10,12 @@ export class Proposal extends Resource {
   speciality: string;
   kind: string;
   keywords: string;
-  owner: string | User;  // `string` when populated as ID, `User` if expanded
+  owner: string | User;
   student?: string;
   director?: string;
   codirector?: string;
   chat?: string;
-  categories: string[] = [];
+  categories: number[] = [];
 
   constructor(values: object = {}) {
     super();

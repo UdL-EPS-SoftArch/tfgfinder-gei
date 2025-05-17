@@ -1,50 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProposalService } from '../proposal.service';
-import { Proposal } from '../proposal';
+import { UserService } from '../user.service';
+import { User } from '../../login-basic/user';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-proposal-create',
-  templateUrl: './proposal-create.component.html'
+  selector: 'app-user-register',
+  templateUrl: './user-register.component.html',
+  standalone: true,
+  imports: [FormsModule, CommonModule], // Add FormsModule
 })
-export class ProposalCreateComponent implements OnInit {
-  public proposal: Proposal = {
-    title: '',
-    description: '',
-    timing: '',
-    speciality: '',
-    kind: '',
-    keywords: '',
-    owner: null,
-    categoriesRaw: '',
-    categories: [],
-    chat: null,
-    student: null,
-    codirector: null,
-    director: null
-  };
+export class UserRegisterComponent implements OnInit {
+  public user: User = new User();
 
   constructor(
     private router: Router,
-    private location: Location,
-    private proposalService: ProposalService
+    private userService: UserService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    this.proposal.categories = this.categoriesInput
-      .split(',')
-      .map(id => parseInt(id.trim(), 10))
-      .filter(id => !isNaN(id));
-
-    this.proposalService.createResource({ body: this.proposal }).subscribe(
-      () => this.router.navigate(['/proposals']),
-      error => console.error('Failed to create proposal:', error)
+    this.userService.createResource({ body: this.user }).subscribe(
+      () => this.router.navigate(['/login']),
+      error => console.error('Failed to register user:', error)
     );
   }
-
 
   onCancel(): void {
     this.location.back();
