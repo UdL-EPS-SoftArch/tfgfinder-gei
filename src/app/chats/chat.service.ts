@@ -22,4 +22,8 @@ export class ChatService {
   sendMessage(chatId: number, message: Partial<Message>): Observable<Message> {
     return this.http.post<Message>(`${this.apiUrl}/${chatId}/messages`, message);
   }
+  createChat(username: string): Observable<Chat> {
+    return this.http.post<Chat>(`${this.apiUrl}`, { username });
+  }
+
 }

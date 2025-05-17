@@ -4,6 +4,6 @@ export interface Message {
   id: number;
   text: string;
   when: string;
-  from: number;
+  from: string;
   chat: number | Chat;
 }

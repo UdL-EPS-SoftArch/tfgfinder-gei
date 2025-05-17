@@ -1,15 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
 <div class="container mt-3">
   <h3>Xats</h3>
+
+  <!-- FORMULARI per crear nou xat -->
+  <form (ngSubmit)="createChat()" #chatForm="ngForm" class="mb-3">
+    <div class="form-group">
+      <label for="username">Nom d'usuari per iniciar un xat:</label>
+      <input
+        type="text"
+        id="username"
+        class="form-control"
+        required
+        [(ngModel)]="newChatUsername"
+        name="username"
+        #username="ngModel"
+        placeholder="Introdueix el nom d'usuari"
+      />
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+        El nom d'usuari és obligatori.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2" [disabled]="chatForm.invalid">
+      Crear xat
+    </button>
+  </form>
+
+
+  <!-- Llista de xats -->
   <ul class="list-group">
-    <li *ngFor="let chat of chats" class="list-group-item" (click)="openChat(chat.id)">
-      Xat ID: {{ chat.id }}
+    <li
+      *ngFor="let chat of chats"
+      class="list-group-item"
+      (click)="openChat(chat.id)"
+      style="cursor: pointer"
+      [title]="'Xat amb ID ' + chat.id"
+    >
+      Xat amb: {{ chat.id || ('Usuari #' + chat.id) }}
     </li>
   </ul>
 </div>
-
-<body>
-
-</body>
-</html>

@@ -9,6 +9,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import {ChatListComponent} from "./chats/chat-list/chat-list.component";
+import {ChatDetailComponent} from "./chats/chat-detail/chat-detail.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'chats', component: ChatListComponent },
+  { path: 'chats/:id', component: ChatDetailComponent },
 ];
 
 @NgModule({
