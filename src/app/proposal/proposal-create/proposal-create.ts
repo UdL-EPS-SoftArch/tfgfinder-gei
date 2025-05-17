@@ -9,21 +9,8 @@ import { Location } from '@angular/common';
   templateUrl: './proposal-create.component.html'
 })
 export class ProposalCreateComponent implements OnInit {
-  public proposal: Proposal = {
-    title: '',
-    description: '',
-    timing: '',
-    speciality: '',
-    kind: '',
-    keywords: '',
-    owner: null,
-    categoriesRaw: '',
-    categories: [],
-    chat: null,
-    student: null,
-    codirector: null,
-    director: null
-  };
+  public proposal: Proposal;
+  public categoriesInput: string = ''; // Temporary variable for user input
 
   constructor(
     private router: Router,
@@ -31,10 +18,13 @@ export class ProposalCreateComponent implements OnInit {
     private proposalService: ProposalService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.proposal = new Proposal();
+  }
 
   onSubmit(): void {
-    this.proposal.categories = this.categoriesInput
+    // Process categoriesInput into an array of numbers
+    this.proposal = this.categoriesInput
       .split(',')
       .map(id => parseInt(id.trim(), 10))
       .filter(id => !isNaN(id));
@@ -44,7 +34,6 @@ export class ProposalCreateComponent implements OnInit {
       error => console.error('Failed to create proposal:', error)
     );
   }
-
 
   onCancel(): void {
     this.location.back();
