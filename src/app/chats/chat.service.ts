@@ -25,5 +25,4 @@ export class ChatService {
   createChat(username: string): Observable<Chat> {
     return this.http.post<Chat>(`${this.apiUrl}`, { username });
   }
-
 }

@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ChatListComponent implements OnInit {
   chats: Chat[] = [];
-  newChatUsername: string = '';
+  newChatUsername: string = '';  // <-- Torna a posar aquesta propietat
 
   constructor(private chatService: ChatService, private router: Router) {}
 
