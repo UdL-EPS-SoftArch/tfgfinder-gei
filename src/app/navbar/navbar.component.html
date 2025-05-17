@@ -18,6 +18,10 @@
              [routerLink]="['/users']"><span class="fas fa-user-circle"></span> List</a>
         </div>
       </li>
+      <li class="nav-item" [routerLinkActive]="'active'" *ngIf="isRole('user')">
+        <a class="nav-link" [routerLink]="['/chats']">Chats</a>
+      </li>
+
     </ul>
     <ul class="navbar-nav ms-auto me-3" app-login-navbar></ul>
   </div>
