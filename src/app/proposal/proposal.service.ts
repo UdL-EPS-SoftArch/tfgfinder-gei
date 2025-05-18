@@ -3,14 +3,18 @@ import { Observable } from 'rxjs/internal/Observable';
 import { HateoasResourceOperation, ResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { Proposal } from './proposal';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ProposalService extends HateoasResourceOperation<Proposal> {
-
   constructor() {
     super(Proposal);
   }
 
   public findByIdContaining(query: string): Observable<ResourceCollection<Proposal>> {
     return this.searchCollection('findByTitle', { params: { text: query } });
+  }
+
+  // Optional: Disable creation
+  public createResource(): Observable<never> {
+    throw new Error('Proposal creation is not implemented yet');
   }
 }

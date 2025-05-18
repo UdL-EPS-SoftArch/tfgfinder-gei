@@ -19,7 +19,6 @@ const routes: Routes = [
   { path: 'users', component: UserListComponent, canActivate: [LoggedInGuard]},
   { path: 'proposals', component: ProposalListComponent, canActivate: [LoggedInGuard]},
   { path: 'proposals/:id', component: ProposalDetailComponent, canActivate: [LoggedInGuard]},
-  { path: 'proposals/create', component: ProposalCreateComponent, canActivate: [LoggedInGuard]},
 
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},

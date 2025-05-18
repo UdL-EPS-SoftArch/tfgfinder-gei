@@ -1,79 +1,30 @@
-<form id="proposal-form" (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
-  <fieldset>
-    <!-- Title input -->
-    <div class="form-group mb-3" [class.was-validated]="title.dirty || title.touched">
-      <label for="title">Title*</label>
-      <input id="title" name="title" type="text" class="form-control" required
-             [(ngModel)]="proposal.title" #title="ngModel">
-      <div class="invalid-feedback" *ngIf="title.invalid && (title.dirty || title.touched)">
-        A title is required
-      </div>
+<form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <div>
+    <label for="username">Username:</label>
+    <input
+      id="username"
+      name="username"
+      [(ngModel)]="user.username"
+      #username="ngModel"
+      required
+    >
+    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+      <div *ngIf="username.errors?.['required']">Username is required.</div>
     </div>
-
-    <!-- Description input -->
-    <div class="form-group mb-3" [class.was-validated]="description.dirty || description.touched">
-      <label for="description">Description*</label>
-      <textarea id="description" name="description" class="form-control" required
-                [(ngModel)]="proposal.description" #description="ngModel"></textarea>
-      <div class="invalid-feedback" *ngIf="description.invalid && (description.dirty || description.touched)">
-        A description is required
-      </div>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      [(ngModel)]="user.password"
+      #password="ngModel"
+      required
+    >
+    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div *ngIf="password.errors?.['required']">Password is required.</div>
     </div>
-
-    <!-- Timing input -->
-    <div class="form-group mb-3" [class.was-validated]="timing.dirty || timing.touched">
-      <label for="timing">Timing*</label>
-      <input id="timing" name="timing" type="text" class="form-control" required
-             [(ngModel)]="proposal.timing" #timing="ngModel">
-      <div class="invalid-feedback" *ngIf="timing.invalid && (timing.dirty || timing.touched)">
-        Timing is required
-      </div>
-    </div>
-
-    <!-- Speciality input -->
-    <div class="form-group mb-3" [class.was-validated]="speciality.dirty || speciality.touched">
-      <label for="speciality">Speciality*</label>
-      <input id="speciality" name="speciality" type="text" class="form-control" required
-             [(ngModel)]="proposal.speciality" #speciality="ngModel">
-      <div class="invalid-feedback" *ngIf="speciality.invalid && (speciality.dirty || speciality.touched)">
-        Speciality is required
-      </div>
-    </div>
-
-    <!-- Kind input -->
-    <div class="form-group mb-3" [class.was-validated]="kind.dirty || kind.touched">
-      <label for="kind">Kind*</label>
-      <input id="kind" name="kind" type="text" class="form-control" required
-             [(ngModel)]="proposal.kind" #kind="ngModel">
-      <div class="invalid-feedback" *ngIf="kind.invalid && (kind.dirty || kind.touched)">
-        Kind is required
-      </div>
-    </div>
-
-    <!-- Keywords input -->
-    <div class="form-group mb-3" [class.was-validated]="keywords.dirty || keywords.touched">
-      <label for="keywords">Keywords*</label>
-      <input id="keywords" name="keywords" type="text" class="form-control" required
-             [(ngModel)]="proposal.keywords" #keywords="ngModel">
-      <div class="invalid-feedback" *ngIf="keywords.invalid && (keywords.dirty || keywords.touched)">
-        Keywords are required
-      </div>
-    </div>
-
-    <!-- Categories input -->
-    <div class="form-group mb-3" [class.was-validated]="categoriesRaw.dirty || categoriesRaw.touched">
-      <label for="categoriesRaw">Categories (comma-separated IDs)*</label>
-      <input id="categoriesRaw" name="categoriesRaw" type="text" class="form-control" required
-             [(ngModel)]="proposal.categoriesRaw" #categoriesRaw="ngModel">
-      <div class="invalid-feedback" *ngIf="categoriesRaw.invalid && (categoriesRaw.dirty || categoriesRaw.touched)">
-        At least one category ID is required
-      </div>
-    </div>
-
-    <!-- Buttons -->
-    <div class="form-group text-end">
-      <button type="button" (click)="onCancel()" class="btn btn-outline-primary">Back</button>
-      <button type="submit" [disabled]="form.invalid" class="btn btn-success ms-3">Submit</button>
-    </div>
-  </fieldset>
+  </div>
+  <button type="submit" [disabled]="userForm.invalid">Register</button>
 </form>

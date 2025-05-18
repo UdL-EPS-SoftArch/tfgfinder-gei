@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProposalService } from '../proposal.service';
 import { Proposal } from '../proposal';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
-import { NgIf } from '@angular/common';
 
 @Component({
-  imports: [RouterLink, NgIf],
   selector: 'app-proposal-detail',
   templateUrl: './proposal-detail.component.html'
 })
 export class ProposalDetailComponent implements OnInit {
   public proposal: Proposal = new Proposal();
 
-  constructor(private route: ActivatedRoute,
-              private proposalService: ProposalService,
-              private authenticationService: AuthenticationBasicService) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private proposalService: ProposalService,
+    private authenticationService: AuthenticationBasicService
+  ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.proposalService.getResource(id).subscribe(
       proposal => {
         this.proposal = proposal;
-      });
+      }
+    );
   }
 }
