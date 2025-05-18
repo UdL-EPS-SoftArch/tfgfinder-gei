@@ -5,15 +5,16 @@
       id="username"
       name="username"
       class="form-control"
-      [class.is-invalid]="username.invalid && (username.dirty || username.touched)"
+      [class.is-invalid]="username.invalid && (username.dirty || username.touched || submitted)"
       [(ngModel)]="user.username"
       #username="ngModel"
       required
     >
-    <div class="invalid-feedback" *ngIf="username.invalid && (username.dirty || username.touched)">
+    <div class="invalid-feedback" *ngIf="username.invalid && (username.dirty || username.touched || submitted)">
       Username is required.
     </div>
   </div>
+
   <div class="mb-3">
     <label for="email" class="form-label">Email:</label>
     <input
@@ -21,17 +22,18 @@
       name="email"
       type="email"
       class="form-control"
-      [class.is-invalid]="email.invalid && (email.dirty || email.touched)"
+      [class.is-invalid]="email.invalid && (email.dirty || email.touched || submitted)"
       [(ngModel)]="user.email"
       #email="ngModel"
       required
       email
     >
-    <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+    <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched || submitted)">
       <span *ngIf="email.errors?.['required']">Email is required.</span>
       <span *ngIf="email.errors?.['email']">Invalid email format.</span>
     </div>
   </div>
+
   <div class="mb-3">
     <label for="password" class="form-label">Password:</label>
     <input
@@ -39,16 +41,17 @@
       name="password"
       type="password"
       class="form-control"
-      [class.is-invalid]="password.invalid && (password.dirty || password.touched)"
+      [class.is-invalid]="password.invalid && (password.dirty || password.touched || submitted)"
       [(ngModel)]="user.password"
       #password="ngModel"
       required
       minlength="8"
     >
-    <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+    <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched || submitted)">
       <span *ngIf="password.errors?.['required']">Password is required.</span>
       <span *ngIf="password.errors?.['minlength']">Password must be at least 8 characters.</span>
     </div>
   </div>
+
   <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Submit</button>
 </form>

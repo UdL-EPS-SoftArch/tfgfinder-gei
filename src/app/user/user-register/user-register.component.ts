@@ -13,6 +13,7 @@ import { AuthenticationBasicService } from '../../login-basic/authentication-bas
 })
 export class UserRegisterComponent {
   public user: User = new User();
+  public submitted = false; // NEW: track form submission
 
   constructor(
     private router: Router,
@@ -21,8 +22,9 @@ export class UserRegisterComponent {
   ) {}
 
   onSubmit(userForm: NgForm): void {
+    this.submitted = true; // NEW: mark form as submitted
     if (userForm.invalid) {
-      userForm.control.markAllAsTouched();
+      userForm.control.markAllAsTouched(); // show all validation messages
       return;
     }
     this.userService.createResource({ body: this.user }).subscribe({
