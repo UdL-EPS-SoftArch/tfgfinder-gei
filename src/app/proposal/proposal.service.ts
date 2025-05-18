@@ -28,8 +28,8 @@ export class ProposalService extends HateoasResourceOperation<Proposal> {
     );
   }
 
-  public findByIdContaining(query: string): Observable<ResourceCollection<Proposal>> {
-    return this.searchCollection('findByTitle', { params: { text: query } }).pipe(
+  public findProposalById(query: string): Observable<ResourceCollection<Proposal>> {
+    return this.searchCollection('findProposalById', { params: { text: query } }).pipe(
       catchError((error) => {
         console.error('Error searching proposals:', error);
         return throwError(() => new Error('Failed to search proposals.'));

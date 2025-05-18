@@ -6,6 +6,7 @@ import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { NgForOf, CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
+import {UserSearchComponent} from "../../user/user-search/user-search.component";
 
 @Component({
   selector: 'app-proposal-list',
