@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../../login-basic/user';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 
 @Component({
@@ -20,7 +20,11 @@ export class UserRegisterComponent {
     private authService: AuthenticationBasicService
   ) {}
 
-  onSubmit(): void {
+  onSubmit(userForm: NgForm): void {
+    if (userForm.invalid) {
+      userForm.control.markAllAsTouched();
+      return;
+    }
     this.userService.createResource({ body: this.user }).subscribe({
       next: () => {
         this.authService.login(this.user.username, this.user.password).subscribe({
