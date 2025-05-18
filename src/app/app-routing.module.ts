@@ -21,7 +21,8 @@ const routes: Routes = [
   { path: 'proposals', component: ProposalListComponent },
   { path: 'proposals/create', component: ProposalCreateComponent, canActivate: [LoggedInGuard] }, // Specific route first
   { path: 'proposals/:id', component: ProposalDetailComponent },
-
+  { path: 'interests', component: ShowInterestsComponent, canActivate: [LoggedInGuard]},
+  { path: 'proposals', component: ProposalListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
