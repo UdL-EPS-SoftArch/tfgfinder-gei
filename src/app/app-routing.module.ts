@@ -11,6 +11,7 @@ import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import {ProposalListComponent} from "./proposal/proposal-list/proposal-list.component";
 import {ProposalDetailComponent} from "./proposal/proposal-detail/proposal-detail.component";
 import {ProposalCreateComponent} from "./proposal/proposal-create/proposal-create.component";
+import {ShowInterestsComponent} from "./interest/show-interests/show-interests.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
