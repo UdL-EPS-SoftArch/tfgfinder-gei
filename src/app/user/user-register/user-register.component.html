@@ -1,48 +1,52 @@
 <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
-  <div>
-    <label for="username">Username:</label>
+  <div class="mb-3">
+    <label for="username" class="form-label">Username:</label>
     <input
       id="username"
       name="username"
+      class="form-control"
       [(ngModel)]="user.username"
       #username="ngModel"
       required
     >
-    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+    <div class="invalid-feedback" *ngIf="username.invalid && (username.dirty || username.touched)">
       <div *ngIf="username.errors?.['required']">Username is required.</div>
     </div>
   </div>
-  <div>
-    <label for="email">Email:</label>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email:</label>
     <input
       id="email"
       name="email"
       type="email"
+      class="form-control"
       [(ngModel)]="user.email"
       #email="ngModel"
       required
       email
     >
-    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+    Scale
+    <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
       <div *ngIf="email.errors?.['required']">Email is required.</div>
       <div *ngIf="email.errors?.['email']">Invalid email format.</div>
     </div>
   </div>
-  <div>
-    <label for="password">Password:</label>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password:</label>
     <input
       id="password"
       name="password"
       type="password"
+      class="form-control"
       [(ngModel)]="user.password"
       #password="ngModel"
       required
       minlength="8"
     >
-    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+    <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
       <div *ngIf="password.errors?.['required']">Password is required.</div>
       <div *ngIf="password.errors?.['minlength']">Password must be at least 8 characters.</div>
     </div>
   </div>
-  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Submit</button>
 </form>
