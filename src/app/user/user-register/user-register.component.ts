@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../../login-basic/user';
 import { FormsModule } from '@angular/forms';
+import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 
 @Component({
   selector: 'app-user-register',
@@ -15,13 +16,20 @@ export class UserRegisterComponent {
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthenticationBasicService
   ) {}
 
   onSubmit(): void {
-    this.userService.createResource({ body: this.user }).subscribe(
-      () => this.router.navigate(['/users']),
-      error => console.error('Failed to register user:', error)
-    );
+    this.userService.createResource({ body: this.user }).subscribe({
+      next: () => {
+        // Log the user in after registration
+        this.authService.login(this.user.username, this.user.password).subscribe({
+          next: () => this.router.navigate(['/users']),
+          error: (error) => console.error('Failed to log in after registration:', error)
+        });
+      },
+      error: (error) => console.error('Failed to register user:', error)
+    });
   }
 }
