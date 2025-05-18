@@ -23,7 +23,6 @@ export class UserRegisterComponent {
   onSubmit(): void {
     this.userService.createResource({ body: this.user }).subscribe({
       next: () => {
-        // Log the user in after registration
         this.authService.login(this.user.username, this.user.password).subscribe({
           next: () => this.router.navigate(['/users']),
           error: (error) => console.error('Failed to log in after registration:', error)

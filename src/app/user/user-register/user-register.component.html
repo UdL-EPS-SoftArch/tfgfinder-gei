@@ -5,6 +5,7 @@
       id="username"
       name="username"
       class="form-control"
+      [class.is-invalid]="username.invalid && (username.dirty || username.touched)"
       [(ngModel)]="user.username"
       #username="ngModel"
       required
@@ -20,6 +21,7 @@
       name="email"
       type="email"
       class="form-control"
+      [class.is-invalid]="email.invalid && (email.dirty || email.touched)"
       [(ngModel)]="user.email"
       #email="ngModel"
       required
@@ -37,6 +39,7 @@
       name="password"
       type="password"
       class="form-control"
+      [class.is-invalid]="password.invalid && (password.dirty || password.touched)"
       [(ngModel)]="user.password"
       #password="ngModel"
       required
