@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../../login-basic/user';
@@ -10,15 +10,13 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
   templateUrl: './user-register.component.html'
 })
-export class UserRegisterComponent implements OnInit {
+export class UserRegisterComponent {
   public user: User = new User();
 
   constructor(
     private router: Router,
     private userService: UserService
   ) {}
-
-  ngOnInit(): void {}
 
   onSubmit(): void {
     this.userService.createResource({ body: this.user }).subscribe(
