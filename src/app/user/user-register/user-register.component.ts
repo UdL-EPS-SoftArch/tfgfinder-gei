@@ -1,33 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import { UserService } from '../user.service';
 import { User } from '../../login-basic/user';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
-import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
+  imports: [ FormsModule ],
   selector: 'app-user-register',
-  templateUrl: './user-register.component.html',
-  standalone: true,
-  imports: [FormsModule, CommonModule], // Add FormsModule
+  templateUrl: './user-register.component.html'
 })
 export class UserRegisterComponent implements OnInit {
-  public user: User = new User();
+  public user: User;
 
-  constructor(
-    private router: Router,
-    private userService: UserService,
-    private location: Location
-  ) {}
+  constructor(private router: Router,
+              private location: Location,
+              private userService: UserService,
+              private authenticationBasicService: AuthenticationBasicService) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = new User();
+  }
 
   onSubmit(): void {
     this.userService.createResource({ body: this.user }).subscribe(
-      () => this.router.navigate(['/login']),
-      error => console.error('Failed to register user:', error)
-    );
+      () => {
+        this.authenticationBasicService.login(this.user.username, this.user.password).subscribe(
+          (user: User) => this.router.navigate(['users', user.username]));
+      });
   }
 
   onCancel(): void {
