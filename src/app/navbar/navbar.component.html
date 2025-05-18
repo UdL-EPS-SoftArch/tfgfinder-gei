@@ -20,6 +20,14 @@
         </div>
       </li>
       <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="interestDropdown" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Interest</a>
+        <div class="dropdown-menu" aria-labelledby="interestDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/interests']"> Show Interests</a>
+        </div>
+      </li>
+      <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="proposalDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Proposals</a>
         <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
