@@ -20,6 +20,10 @@ const routes: Routes = [
   { path: 'interests', component: ShowInterestsComponent, canActivate: [LoggedInGuard]},
   { path: 'proposals', component: ProposalListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
+  { path: 'interests', component: ShowInterestsComponent, canActivate: [LoggedInGuard]},
+  { path: 'proposals', component: ProposalListComponent, canActivate: [LoggedInGuard]},
+
+
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
 ];
