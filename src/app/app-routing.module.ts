@@ -11,6 +11,7 @@ import { UserDeleteComponent } from './user/user-delete/user-delete.component';
 import {ProposalListComponent} from "./proposal/proposal-list/proposal-list.component";
 import {ProposalDetailComponent} from "./proposal/proposal-detail/proposal-detail.component";
 
+
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
   { path: 'users/:id/delete', component: UserDeleteComponent, canActivate: [LoggedInGuard]},
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
+  { path: 'interests', component: ShowInterestsComponent, canActivate: [LoggedInGuard]},
+  { path: 'proposals', component: ProposalListComponent, canActivate: [LoggedInGuard]},
 ];
 
 @NgModule({
