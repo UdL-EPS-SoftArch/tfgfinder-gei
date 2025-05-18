@@ -11,7 +11,7 @@
       required
     >
     <div class="invalid-feedback" *ngIf="username.invalid && (username.dirty || username.touched)">
-      <div *ngIf="username.errors?.['required']">Username is required.</div>
+      Username is required.
     </div>
   </div>
   <div class="mb-3">
@@ -28,8 +28,8 @@
       email
     >
     <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
-      <div *ngIf="email.errors?.['required']">Email is required.</div>
-      <div *ngIf="email.errors?.['email']">Invalid email format.</div>
+      <span *ngIf="email.errors?.['required']">Email is required.</span>
+      <span *ngIf="email.errors?.['email']">Invalid email format.</span>
     </div>
   </div>
   <div class="mb-3">
@@ -46,8 +46,8 @@
       minlength="8"
     >
     <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
-      <div *ngIf="password.errors?.['required']">Password is required.</div>
-      <div *ngIf="password.errors?.['minlength']">Password must be at least 8 characters.</div>
+      <span *ngIf="password.errors?.['required']">Password is required.</span>
+      <span *ngIf="password.errors?.['minlength']">Password must be at least 8 characters.</span>
     </div>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Submit</button>
