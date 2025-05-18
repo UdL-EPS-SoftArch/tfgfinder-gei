@@ -13,6 +13,22 @@
     </div>
   </div>
   <div>
+    <label for="email">Email:</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      [(ngModel)]="user.email"
+      #email="ngModel"
+      required
+      email
+    >
+    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors?.['required']">Email is required.</div>
+      <div *ngIf="email.errors?.['email']">Invalid email format.</div>
+    </div>
+  </div>
+  <div>
     <label for="password">Password:</label>
     <input
       id="password"
@@ -21,10 +37,12 @@
       [(ngModel)]="user.password"
       #password="ngModel"
       required
+      minlength="8"
     >
     <div *ngIf="password.invalid && (password.dirty || password.touched)">
       <div *ngIf="password.errors?.['required']">Password is required.</div>
+      <div *ngIf="password.errors?.['minlength']">Password must be at least 8 characters.</div>
     </div>
   </div>
-  <button type="submit" [disabled]="userForm.invalid">Register</button>
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
 </form>
