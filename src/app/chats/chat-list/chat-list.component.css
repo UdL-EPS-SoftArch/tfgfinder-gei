@@ -1,0 +1,55 @@
+/* Contenidor principal de la llista de xats */
+.chat-list {
+  margin: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Cada ítem de la llista de xats */
+.chat-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 12px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+/* Quan el ratolí passa per damunt del xat */
+.chat-item:hover {
+  background-color: #f0f8ff;
+}
+
+/* Nom del xat */
+.chat-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Descripció o missatge curt del xat */
+.chat-preview {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Estils generals reutilitzables */
+a:link {
+  color: red;
+}
+
+a:visited {
+  color: blue;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+a:active {
+  color: green;
+}
+
+p {
+  text-align: justify;
+}
