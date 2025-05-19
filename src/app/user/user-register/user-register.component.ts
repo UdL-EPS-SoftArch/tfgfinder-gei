@@ -7,9 +7,9 @@ import { Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-    imports: [ FormsModule ],
-    selector: 'app-user-register',
-    templateUrl: './user-register.component.html'
+  imports: [ FormsModule ],
+  selector: 'app-user-register',
+  templateUrl: './user-register.component.html'
 })
 export class UserRegisterComponent implements OnInit {
   public user: User;
@@ -28,7 +28,7 @@ export class UserRegisterComponent implements OnInit {
     this.userService.createResource({ body: this.user }).subscribe(
       () => {
         this.authenticationBasicService.login(this.user.username, this.user.password).subscribe(
-            (user: User) => this.router.navigate(['users', user.username]));
+          (user: User) => this.router.navigate(['users', user.username]));
       });
   }
 

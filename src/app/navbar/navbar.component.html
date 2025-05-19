@@ -16,6 +16,7 @@
         <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
              [routerLink]="['/users']"><span class="fas fa-user-circle"></span> List</a>
+
         </div>
       </li>
       <li class="nav-item" [routerLinkActive]="'active'" *ngIf="isRole('user')">
@@ -35,7 +36,11 @@
         <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
              [routerLink]="['/proposals']"><span class="fas fa-proposal-circle"></span> List</a>
+          <a class="dropdown-item" routerLink="/proposals/create" routerLinkActive="active">
+            <span class="fas fa-plus-circle"></span> Create Proposal
+          </a>
         </div>
+
       </li>
     </ul>
     <ul class="navbar-nav ms-auto me-3" app-login-navbar></ul>
