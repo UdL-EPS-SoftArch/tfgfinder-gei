@@ -12,6 +12,10 @@ import {ProposalListComponent} from "./proposal/proposal-list/proposal-list.comp
 import {ProposalDetailComponent} from "./proposal/proposal-detail/proposal-detail.component";
 import {ProposalCreateComponent} from "./proposal/proposal-create/proposal-create.component";
 import {ShowInterestsComponent} from "./interest/show-interests/show-interests.component";
+import { ChatListComponent } from "./chats/chat-list/chat-list.component";
+import { ChatDetailComponent } from "./chats/chat-detail/chat-detail.component";
+import { ShowInterestsComponent } from './interest/show-interests/show-interests.component';
+import { ProposalListComponent } from "./proposal/proposal-list/proposal-list.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -27,6 +31,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
+  { path: 'chats', component: ChatListComponent },
+  { path: 'chats/:id', component: ChatDetailComponent },
 ];
 
 @NgModule({

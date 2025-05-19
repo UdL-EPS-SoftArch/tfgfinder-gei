@@ -19,6 +19,9 @@
 
         </div>
       </li>
+      <li class="nav-item" [routerLinkActive]="'active'" *ngIf="isRole('user')">
+        <a class="nav-link" [routerLink]="['/chats']">Chats</a>
+      </li>
       <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="interestDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Interest</a>

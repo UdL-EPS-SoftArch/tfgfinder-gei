@@ -1,0 +1,14 @@
+<div class="container mt-3">
+  <h3>Xat ID: {{ chatId }}</h3>
+
+  <ul class="list-group mb-3">
+    <li *ngFor="let message of messages" class="list-group-item">
+      {{ message.content }}
+    </li>
+  </ul>
+
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Escriu un missatge..." [(ngModel)]="newMessageText" />
+    <button class="btn btn-success" (click)="sendMessage()">Enviar</button>
+  </div>
+</div>
