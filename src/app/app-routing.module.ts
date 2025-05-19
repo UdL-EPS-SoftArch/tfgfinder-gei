@@ -8,14 +8,12 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserDeleteComponent } from './user/user-delete/user-delete.component';
-import {ProposalListComponent} from "./proposal/proposal-list/proposal-list.component";
-import {ProposalDetailComponent} from "./proposal/proposal-detail/proposal-detail.component";
-import {ProposalCreateComponent} from "./proposal/proposal-create/proposal-create.component";
-import {ShowInterestsComponent} from "./interest/show-interests/show-interests.component";
+import { ProposalListComponent } from "./proposal/proposal-list/proposal-list.component";
+import { ProposalDetailComponent } from "./proposal/proposal-detail/proposal-detail.component";
+import { ProposalCreateComponent } from "./proposal/proposal-create/proposal-create.component";
+import { ShowInterestsComponent } from "./interest/show-interests/show-interests.component";
 import { ChatListComponent } from "./chats/chat-list/chat-list.component";
 import { ChatDetailComponent } from "./chats/chat-detail/chat-detail.component";
-import { ShowInterestsComponent } from './interest/show-interests/show-interests.component';
-import { ProposalListComponent } from "./proposal/proposal-list/proposal-list.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
