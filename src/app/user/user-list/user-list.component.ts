@@ -25,10 +25,10 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getPage({ pageParams:  { size: this.pageSize }, sort: { username: 'ASC' } }).subscribe(
-        (page: PagedResourceCollection<User>) => {
-          this.users = page.resources;
-          this.totalUsers = page.totalElements;
-        });
+      (page: PagedResourceCollection<User>) => {
+        this.users = page.resources;
+        this.totalUsers = page.totalElements;
+      });
   }
 
   changePage(): void {
