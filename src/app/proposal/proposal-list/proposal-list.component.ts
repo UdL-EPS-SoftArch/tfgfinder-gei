@@ -36,6 +36,8 @@ export class ProposalListComponent implements OnInit {
           this.loadProposals();
         }
       });
+
+
   }
 
   loadProposals(): void {

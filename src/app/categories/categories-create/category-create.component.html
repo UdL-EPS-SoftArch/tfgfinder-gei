@@ -1,0 +1,33 @@
+<main role="main" class="container mt-5">
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <form id="category-form" (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
+    <div class="form-group">
+      <label for="name">Category Name</label>
+      <input
+        id="name"
+        name="name"
+        [(ngModel)]="category.name"
+        #name="ngModel"
+        class="form-control"
+        required
+      />
+      <div *ngIf="name.invalid && name.touched" class="alert alert-danger mt-1">
+        Category name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="category.description"
+        #description="ngModel"
+        class="form-control"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+    <button type="button" (click)="onCancel()" class="btn btn-outline-secondary">Cancel</button>
+  </form>
+</main>
