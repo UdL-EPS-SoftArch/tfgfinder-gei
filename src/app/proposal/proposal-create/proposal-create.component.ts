@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule],
 })
 export class ProposalCreateComponent implements OnInit {
-  public proposal: Proposal = new Proposal();
+  public proposal: Proposal;
   public categoriesInput: string = '';
   public errorMessage: string | null = null;
 
@@ -23,7 +23,9 @@ export class ProposalCreateComponent implements OnInit {
     private proposalService: ProposalService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.proposal = new Proposal();
+  }
 
   onSubmit(): void {
     this.proposal.categories = this.categoriesInput

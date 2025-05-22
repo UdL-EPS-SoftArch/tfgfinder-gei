@@ -1,28 +1,54 @@
-p {
-  text-align: justify;
-}
-/* unvisited link */
-a:link {
-  color: red;
-}
-
-/* visited link */
-a:visited {
-  color: blue;
+/* Hero Section */
+.about-hero {
+  background: url('/assets/hero-bg.jpg') center/cover no-repeat;
+  padding: 5rem 1rem;
+  /* Text shadow for better contrast */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* mouse over link */
+/* Content Section */
+.about-content h2 {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.about-content p,
+.about-content ul {
+  line-height: 1.6;
+}
+
+/* Repository Cards */
+.card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Buttons */
+.btn-outline-primary {
+  border-width: 2px;
+}
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Footer */
+.footer {
+  background-color: #f8f9fa;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Global Links */
+a {
+  transition: color 0.2s;
+}
 a:hover {
-  color: hotpink;
+  color: #0056b3;
 }
-
-/* selected link */
-a:active {
-  color: green;
-}
-
-div {
-  display: block;
-}
-
-

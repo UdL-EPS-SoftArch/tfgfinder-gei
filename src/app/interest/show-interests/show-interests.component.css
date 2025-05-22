@@ -1,0 +1,15 @@
+.table-responsive {
+  margin-top: 1rem;
+}
+
+.btn-sm {
+  margin: 0 0.25rem;
+}
+
+.table th {
+  background-color: #f8f9fa;
+}
+
+.table td {
+  vertical-align: middle;
+} 
