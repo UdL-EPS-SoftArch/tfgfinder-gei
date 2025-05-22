@@ -3,6 +3,7 @@ import { User } from '../login-basic/user';
 
 @HateoasResource('proposals')
 export class Proposal extends Resource {
+  uri: string;
   id: number;
   title: string;
   description: string;

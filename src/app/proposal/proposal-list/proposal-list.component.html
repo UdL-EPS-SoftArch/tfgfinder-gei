@@ -4,7 +4,7 @@
     <div class="card-body row align-items-center">
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">Title</h6>
-        <a class="card-text" [routerLink]="['/proposals', proposal.id]">{{proposal.id}}</a>
+        <a class="card-text" [routerLink]="[proposal.uri]">{{proposal.title}}</a>
       </div>
       <div class="col-6 mt-1">
         <h6 class="card-subtitle text-muted">Status</h6>

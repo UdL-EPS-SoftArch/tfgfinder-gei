@@ -4,6 +4,7 @@ import { ProposalService } from '../proposal.service';
 import { Proposal } from '../proposal';
 import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import { CommonModule } from '@angular/common';
+import {User} from "../../login-basic/user";
 
 @Component({
   selector: 'app-proposal-detail',
@@ -28,6 +29,16 @@ export class ProposalDetailComponent implements OnInit {
       this.proposalService.getResource(id).subscribe({
         next: (proposal) => {
           this.proposal = proposal;
+          proposal.getRelation('owner').subscribe((user : User)=>{
+            proposal.owner = user.username
+          });
+
+          proposal.getRelation('director').subscribe((user : User)=>{
+            proposal.director = user.username
+          });
+          proposal.getRelation('codirector').subscribe((user : User)=>{
+            proposal.codirector = user.username
+          });
         },
         error: (error) => {
           this.errorMessage = 'Failed to load proposal. Please try again later.';
