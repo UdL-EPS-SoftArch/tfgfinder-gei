@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProposalService } from '../proposal.service';
 import { Proposal } from '../proposal';
-import { AuthenticationBasicService } from '../../login-basic/authentication-basic.service';
 import { CommonModule } from '@angular/common';
+import {User} from "../../login-basic/user";
 
 @Component({
   selector: 'app-proposal-detail',
@@ -19,9 +19,7 @@ export class ProposalDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private proposalService: ProposalService,
-    private authenticationService: AuthenticationBasicService
-  ) {}
+    private proposalService: ProposalService) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -29,6 +27,16 @@ export class ProposalDetailComponent implements OnInit {
       this.proposalService.getResource(id).subscribe({
         next: (proposal) => {
           this.proposal = proposal;
+          proposal.getRelation('owner').subscribe((user : User)=>{
+            proposal.owner = user.username
+          });
+
+          proposal.getRelation('director').subscribe((user : User)=>{
+            proposal.director = user.username
+          });
+          proposal.getRelation('codirector').subscribe((user : User)=>{
+            proposal.codirector = user.username
+          });
         },
         error: (error) => {
           this.errorMessage = 'Failed to load proposal. Please try again later.';
@@ -37,7 +45,7 @@ export class ProposalDetailComponent implements OnInit {
       });
     } else {
       this.errorMessage = 'Invalid proposal ID.';
-      this.router.navigate(['/proposals']); // Redirect to list if ID is invalid
+      this.router.navigate(['/proposals']).then(); // Redirect to list if ID is invalid
     }
   }
 }

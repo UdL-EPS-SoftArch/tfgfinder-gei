@@ -1,25 +1,49 @@
-<main role="main" class="proposal-detail-container">
-  <div *ngIf="errorMessage" class="alert alert-danger error-alert">
+<main role="main" class="container mt-5">
+  <div *ngIf="errorMessage" class="alert alert-danger">
     {{ errorMessage }}
   </div>
+  <div *ngIf="proposal" class="card mb-4">
+    <div class="card-block">
+      <h4 class="card-title col-md-12 p-3">{{ proposal.title }}</h4>
+      <div class="card-body row m-1">
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Owner</h6>
+          <p class="card-text">{{ proposal.owner }}</p>
+        </div>
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Categories</h6>
+          <p class="card-text">{{ proposal.categories.join(', ') }}</p>
+        </div>
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Speciality</h6>
+          <p class="card-text">{{ proposal.speciality }}</p>
+        </div>
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Description</h6>
+          <p class="card-text">{{ proposal.description }}</p>
+        </div>
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Timming</h6>
+          <p class="card-text">{{ proposal.timing }}</p>
+        </div>
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Kind</h6>
+          <p class="card-text">{{ proposal.kind }}</p>
+        </div>
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Keywords</h6>
+          <p class="card-text">{{ proposal.keywords }}</p>
+        </div>
 
-  <div *ngIf="proposal" class="card detail-card">
-    <div class="card-header detail-header">
-      <h4 class="detail-title">{{ proposal.title }}</h4>
-    </div>
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Director</h6>
+          <p class="card-text">{{ proposal.director }}</p>
+        </div>
 
-    <div class="card-body detail-body row">
-      <div class="detail-col col-md-4">
-        <h6 class="detail-label">Owner</h6>
-        <p class="detail-text">{{ proposal.owner }}</p>
-      </div>
-      <div class="detail-col col-md-4">
-        <h6 class="detail-label">Categories</h6>
-        <p class="detail-text">{{ proposal.categories.join(', ') }}</p>
-      </div>
-      <div class="detail-col col-md-4">
-        <h6 class="detail-label">ID</h6>
-        <p class="detail-text">{{ proposal.id }}</p>
+        <div class="col-md-4 p-3">
+          <h6 class="card-subtitle text-muted">Codirector</h6>
+          <p class="card-text">{{ proposal.codirector }}</p>
+        </div>
       </div>
     </div>
   </div>
