@@ -35,6 +35,7 @@
         [(ngModel)]="proposal.timing"
         #timing="ngModel"
         class="form-control"
+        placeholder="Enter timing in weeks"
       />
     </div>
     <div class="form-group">
@@ -67,25 +68,27 @@
         class="form-control"
       />
     </div>
+
+    <!-- Other form fields here -->
+
     <div class="form-group">
-      <label for="owner">Owner</label>
-      <input
-        id="owner"
-        name="owner"
-        [(ngModel)]="proposal.owner"
-        #owner="ngModel"
+      <label for="category">Degree Category</label>
+      <select
+        id="category"
+        name="category"
+        [(ngModel)]="selectedCategory"
+        #category="ngModel"
         class="form-control"
-      />
-    </div>
-    <div class="form-group">
-      <label for="categories">Categories (comma-separated IDs)</label>
-      <input
-        id="categories"
-        name="categories"
-        [(ngModel)]="categoriesInput"
-        #categories="ngModel"
-        class="form-control"
-      />
+        required
+      >
+        <option value="">Select a degree category</option>
+        <option *ngFor="let category of categories" [value]="category.name">
+          {{ category.name }}
+        </option>
+      </select>
+      <div *ngIf="category.invalid && category.touched" class="alert alert-danger mt-1">
+        Degree category is required.
+      </div>
     </div>
     <div class="form-group">
       <label for="chat">Chat</label>

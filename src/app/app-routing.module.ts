@@ -14,6 +14,7 @@ import { ProposalCreateComponent } from "./proposal/proposal-create/proposal-cre
 import { ShowInterestsComponent } from "./interest/show-interests/show-interests.component";
 import { ChatListComponent } from "./chats/chat-list/chat-list.component";
 import { ChatDetailComponent } from "./chats/chat-detail/chat-detail.component";
+import {CategoryCreateComponent} from "./categories/categories-create/category-create.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -31,6 +32,10 @@ const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'chats', component: ChatListComponent },
   { path: 'chats/:id', component: ChatDetailComponent },
+  { path: 'categories/create' ,component: CategoryCreateComponent, canActivate: [LoggedInGuard] },
+  { path: 'categories/:id' ,component: CategoryCreateComponent, canActivate: [LoggedInGuard] },
+
+
 ];
 
 @NgModule({
