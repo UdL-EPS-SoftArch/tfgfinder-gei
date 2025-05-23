@@ -1,0 +1,118 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9f9fb;
+    color: #2a2a2a;
+    line-height: 1.7;
+  }
+  a {
+    text-decoration: none;
+    color: #0056b3;
+  }
+  
+  /* Utility */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+  }
+  .mt-4 {
+    margin-top: 2rem;
+  }
+  .mb-2 {
+    margin-bottom: 1rem;
+  }
+  .mb-4 {
+    margin-bottom: 2rem;
+  }
+  
+  /* Header */
+  .site-header {
+    background-color: #1d3557;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+  }
+  .site-header h1 {
+    font-size: 2.5rem;
+  }
+  .site-header nav {
+    margin-top: 10px;
+  }
+  .site-header nav a {
+    margin: 0 15px;
+    color: #fff;
+    font-weight: 500;
+  }
+  .site-header nav a:hover,
+  .site-header nav a.active {
+    text-decoration: underline;
+  }
+  
+  /* Intro Section */
+  .intro {
+    background: #e5ecf5;
+    padding: 60px 0;
+    text-align: center;
+  }
+  .intro h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .intro p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #555;
+  }
+  
+  /* Details Section */
+  .details h3 {
+    font-size: 1.6rem;
+    color: #1d3557;
+    margin-bottom: 1rem;
+  }
+  .details p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #444;
+  }
+  
+  /* Feature Grid */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .feature-box {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  .feature-box h4 {
+    color: #457b9d;
+    margin-bottom: 10px;
+  }
+  .feature-box p {
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  /* Footer */
+  .site-footer {
+    background-color: #1d3557;
+    color: #fff;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.95rem;
+    margin-top: 60px;
+  }
+  
