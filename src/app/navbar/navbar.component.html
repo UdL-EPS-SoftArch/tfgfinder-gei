@@ -40,6 +40,14 @@
             <span class="fas fa-plus-circle"></span> Create Proposal
           </a>
         </div>
+         <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/invite-list']"><span class="fas fa-proposal-circle"></span> List</a>
+          <a class="dropdown-item" routerLink="/invite-list" routerLinkActive="active">
+            <span class="fas fa-plus-circle"></span> Create Invite
+          </a>
+        </div>
+       
 
       </li>
     </ul>
