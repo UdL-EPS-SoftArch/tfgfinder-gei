@@ -1,0 +1,16 @@
+<div class="invites-container">
+  <h1 class="page-title">🎓 Senior Project Invitations</h1>
+
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+  <div *ngIf="!error && invites.length === 0" class="no-invites">No invites found.</div>
+
+  <div *ngFor="let invite of invites" class="invite-card">
+    <h2 class="proposal-title">{{ invite.what?.title || 'Untitled Proposal' }}</h2>
+
+    <div class="invite-details">
+      <p><span class="label">Status:</span> <span class="status">{{ invite.status }}</span></p>
+      <p><span class="label">Invited By:</span> {{ invite.who?.name || 'Unknown' }}</p>
+      <p><span class="label">Date:</span> {{ invite.when | date: 'fullDate' }}</p>
+    </div>
+  </div>
+</div>
