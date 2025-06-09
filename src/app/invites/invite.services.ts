@@ -1,7 +1,7 @@
-// invites/invite.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Invite {
   id: number;
@@ -15,11 +15,9 @@ export interface Invite {
   providedIn: 'root',
 })
 export class InviteService {
-  private apiUrl = 'http://localhost:8080/api/invites';
-
   constructor(private http: HttpClient) {}
 
   getInvites(): Observable<Invite[]> {
-    return this.http.get<Invite[]>(this.apiUrl);
+    return this.http.get<Invite[]>(`${environment.API}/invites`);
   }
 }
