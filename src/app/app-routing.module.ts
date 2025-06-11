@@ -14,6 +14,8 @@ import { ProposalCreateComponent } from "./proposal/proposal-create/proposal-cre
 import { ShowInterestsComponent } from "./interest/show-interests/show-interests.component";
 import { ChatListComponent } from "./chats/chat-list/chat-list.component";
 import { ChatDetailComponent } from "./chats/chat-detail/chat-detail.component";
+import { InviteListComponent } from "./invite/invite-list/invite-list.component";
+import { ReceivedInvitesComponent } from "./invite/received-invites/received-invites.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -31,6 +33,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'chats', component: ChatListComponent },
   { path: 'chats/:id', component: ChatDetailComponent },
+  { path: 'invites', component: InviteListComponent, canActivate: [LoggedInGuard] },
+  { path: 'received-invites', component: ReceivedInvitesComponent, canActivate: [LoggedInGuard] },
 ];
 
 @NgModule({

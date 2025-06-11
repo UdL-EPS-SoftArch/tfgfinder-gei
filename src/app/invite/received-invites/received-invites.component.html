@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <h2>Received Invites</h2>
+
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error && invites.length === 0" class="alert alert-info" role="alert">
+    You have no received invites.
+  </div>
+
+  <div *ngIf="!loading && !error && invites.length > 0" class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Proposal Title</th>
+          <th>Sent By</th>
+          <th>Received On</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invite of invites">
+          <td>{{ invite.what?.title || 'N/A' }}</td>
+          <td>{{ invite.who?.username || 'N/A' }}</td>
+          <td>{{ invite.when | date:'medium' }}</td>
+          <td>{{ invite.status }}</td>
+          <td>
+            <button (click)="acceptInvite(invite)" class="btn btn-success btn-sm me-2" [disabled]="invite.status !== 'PENDING'">
+              Accept
+            </button>
+            <button (click)="rejectInvite(invite)" class="btn btn-danger btn-sm" [disabled]="invite.status !== 'PENDING'">
+              Reject
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> 

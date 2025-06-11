@@ -31,6 +31,16 @@
         </div>
       </li>
       <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="inviteDropdown" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Invites</a>
+        <div class="dropdown-menu" aria-labelledby="inviteDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/invites']"> Send Invites</a>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/received-invites']"> Show Invites</a>
+        </div>
+      </li>
+      <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="proposalDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Proposals</a>
         <div class="dropdown-menu" aria-labelledby="playDropdown" ngbDropdownMenu>
