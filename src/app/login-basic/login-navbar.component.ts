@@ -8,7 +8,7 @@ import { NgIf } from '@angular/common';
   imports: [RouterModule, NgIf],
     selector: 'app-login-navbar,[app-login-navbar]',
     templateUrl: './login-navbar.component.html',
-    styleUrls: []
+    styleUrls: ['./login-navbar.component.css'],
 })
 export class LoginNavbarComponent {
 
