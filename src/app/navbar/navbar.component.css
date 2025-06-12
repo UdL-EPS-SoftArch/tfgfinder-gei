@@ -1,45 +1,19 @@
-/* Enhanced styling for Angular navbar while keeping the same color scheme */
-
-/* Base navbar styling with enhanced visual presence */
+/* Streamlined navbar styling with the same visual identity */
 .navbar {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Updated */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   padding: 0;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: sticky;
   top: 0;
   z-index: 1030;
-  background: #f8f9fa; /* Updated */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: #f8f9fa;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.navbar::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(to right, #007bff, #00c6ff);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.navbar.scrolled::after {
-  transform: scaleX(var(--scroll-percentage, 0));
-}
-
-/* Brand styling with subtle gradient and animation */
+/* Brand styling */
 .navbar-brand {
   font-weight: 600;
-  padding: 0.5rem 1rem; /* Updated */
-  margin: 0;
-  position: relative;
-  overflow: hidden;
+  padding: 0.5rem 1rem;
   transition: all 0.3s ease;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand:hover {
@@ -49,80 +23,24 @@
 .navbar-brand b {
   font-weight: 800;
   color: #0056b3;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
-  display: inline-block;
-  animation: float 3s ease-in-out infinite;
   position: relative;
 }
 
-.navbar-brand b::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, #007bff, transparent);
-  border-radius: 2px;
-}
-
-@keyframes brandPulse {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
-}
-
-.navbar-brand:hover {
-  animation: brandPulse 1.5s infinite;
-}
-
-.navbar-brand b {
-  font-weight: 800;
-  color: #0056b3;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
-  display: inline-block;
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Improved nav links */
+/* Nav links */
 .nav-link {
   padding: 1.25rem 1rem !important;
   font-weight: 500;
   position: relative;
-  z-index: 1;
-  transition: color 0.2s; /* Updated */
+  transition: color 0.2s;
   color: #495057 !important;
 }
 
-.nav-link::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #007bff;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-  z-index: -1;
-}
-
 .nav-link:hover {
-  color: #007bff !important; /* Updated */
+  color: #007bff !important;
   background-color: rgba(0, 123, 255, 0.1);
 }
 
-.nav-link:hover::before {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
 .nav-link::after {
-  /* Added */
   content: "";
   position: absolute;
   bottom: 0;
@@ -135,22 +53,15 @@
 }
 
 .nav-link:hover::after {
-  /* Added */
   transform: scaleX(1);
 }
 
-/* Active link styling */
+/* Active link */
 .nav-item.active .nav-link {
-  font-weight: 500;
-  color: #007bff !important; /* Updated */
-}
-
-.nav-item.active .nav-link::before {
-  transform: scaleX(1);
+  color: #007bff !important;
 }
 
 .nav-item.active .nav-link::after {
-  /* Added */
   content: "";
   position: absolute;
   bottom: 0;
@@ -159,76 +70,20 @@
   width: 60%;
   height: 2px;
   background-color: #007bff;
-  border-radius: 2px;
 }
 
-/* Dropdown styling with enhanced visual effects */
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-}
-
-.dropdown-toggle::after {
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease;
-  border-top: 0.3em solid;
-  border-right: 0.3em solid transparent;
-  border-left: 0.3em solid transparent;
-}
-
-.dropdown-toggle[aria-expanded="true"]::after {
-  transform: rotate(180deg);
-}
-
+/* Dropdown styling */
 .dropdown-menu {
-  margin-top: 0;
   border: none;
-  border-radius: 4px; /* Updated */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Updated */
-  overflow: hidden;
-  transform-origin: top;
-  animation: dropdownFade 0.3s ease forwards;
-  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes dropdownFade {
-  from {
-    opacity: 0;
-    transform: translateY(-10px) scaleY(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scaleY(1);
-  }
-}
-
-/* Dropdown items with hover animation */
 .dropdown-item {
   padding: 0.75rem 1rem;
   border-radius: 6px;
   margin: 4px 0;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
   transition: all 0.2s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.dropdown-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(0, 123, 255, 0.1), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.dropdown-item:hover::before {
-  transform: translateX(100%);
 }
 
 .dropdown-item:hover {
@@ -237,276 +92,39 @@
   transform: translateX(4px);
 }
 
-.dropdown-item .fas {
-  margin-right: 0.75rem;
-  width: 1rem;
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.dropdown-item:hover .fas {
-  transform: scale(1.2);
-}
-
-/* Add icons to dropdown items using ::before pseudo-element */
-.dropdown-item[routerLink="/users"]::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f007";
-  margin-right: 0.75rem;
-  font-weight: 900;
-}
-
-.dropdown-item[routerLink="/interests"]::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f004";
-  margin-right: 0.75rem;
-  font-weight: 900;
-}
-
-.dropdown-item[routerLink="/proposals"]::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f15c";
-  margin-right: 0.75rem;
-  font-weight: 900;
-}
-
-.dropdown-item[routerLink="/proposals/create"]::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f067";
-  margin-right: 0.75rem;
-  font-weight: 900;
-}
-
-/* Navbar toggler with custom animation */
-.navbar-toggler {
-  border: none;
-  background: transparent;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  margin-right: 1rem;
-  position: relative;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.navbar-toggler:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.navbar-toggler:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Updated */
-}
-
-.navbar-toggler-icon {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 123, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-}
-
-/* Responsive adjustments with advanced techniques */
+/* Responsive adjustments */
 @media (max-width: 991.98px) {
   .navbar-collapse {
     background: rgba(248, 249, 250, 0.98);
     padding: 1rem;
     border-radius: 0 0 16px 16px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    max-height: 80vh;
-    overflow-y: auto;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
-
-  .navbar-collapse::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .navbar-collapse::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-  }
-
-  .navbar-collapse::-webkit-scrollbar-thumb {
-    background: rgba(0, 123, 255, 0.5);
-    border-radius: 10px;
-  }
-
-  .navbar-collapse::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 123, 255, 0.7);
-  }
-
-  .nav-item {
-    margin: 4px 0;
-  }
-
-  .nav-link {
-    padding: 0.75rem 1rem !important;
-    border-radius: 8px;
-  }
-
+  
   .dropdown-menu {
+    border-left: 2px solid #007bff;
     box-shadow: none;
-    border-left: 3px solid #007bff;
-    padding-left: 0.5rem;
-    margin-left: 1rem;
-    animation: none;
-    background: transparent;
   }
-
-  .dropdown-menu {
-    border-left: 2px solid #007bff; /* Updated */
-    box-shadow: none; /* Updated */
-  }
-
+  
   [app-login-navbar] {
-    margin-top: 0.5rem; /* Updated */
+    margin-top: 0.5rem;
     display: flex;
     justify-content: center;
   }
-
-  [app-login-navbar] .btn,
-  [app-login-navbar] a.btn {
-    margin: 0.25rem; /* Updated */
-  }
 }
 
-/* Custom animation for navbar collapse */
-.collapse:not(.show) {
-  display: none;
-}
-
-.collapsing {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  transition: height 0.35s ease;
-}
-
-/* Add a subtle hover effect to the entire nav item */
-.nav-item {
-  position: relative;
-  cursor: pointer; /* Updated */
-  margin: 0 2px;
-  transition: all 0.3s ease;
-}
-
-.nav-item:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-}
-
-.nav-item:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 25%;
-  height: 50%;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1), transparent);
-}
-
-.nav-item.dropdown > .nav-link::after {
-  content: "";
-  position: absolute;
-  right: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #007bff;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.nav-item.dropdown:hover > .nav-link::after {
-  opacity: 1;
-}
-
-/* Custom styling for the login area */
-.navbar-nav.ms-auto {
-  margin-left: auto !important;
-}
-
-.navbar-nav.me-3 {
-  margin-right: 1rem !important;
-}
-
-/* Add a subtle glow effect to the navbar on scroll */
-.navbar.scrolled {
-  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.1), 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-/* Add a container for better content alignment */
-.navbar > .container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Add icon support */
-.nav-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 0.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  background-color: rgba(0, 123, 255, 0.1);
-  color: #007bff;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover .nav-icon {
-  transform: scale(1.1);
-  background-color: rgba(0, 123, 255, 0.2);
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-2px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-/* Add a subtle transition to all elements */
-* {
-  transition: all 0.2s ease;
-}
-
-/* Enhanced styling for login and register buttons */
-
-/* Target the login navbar component */
-[app-login-navbar] {
-  display: flex;
-  align-items: center;
-}
-
-/* Style for auth buttons (login/register) */
+/* Auth buttons */
 [app-login-navbar] .btn,
-[app-login-navbar] button,
 [app-login-navbar] a.btn {
-  position: relative;
-  padding: 0.5rem 1rem; /* Updated */
-  margin: 0 0.25rem; /* Updated */
-  border-radius: 4px; /* Updated */
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 4px;
   font-weight: 500;
-  letter-spacing: 0.3px;
-  transition: all 0.2s; /* Updated */
-  overflow: hidden;
-  z-index: 1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Updated */
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Login button styling */
-[app-login-navbar] .btn-login,
+/* Login button */
 [app-login-navbar] .btn-primary,
 [app-login-navbar] a[href*="login"] {
   background: linear-gradient(135deg, #007bff, #0056b3);
@@ -514,8 +132,7 @@
   color: white !important;
 }
 
-/* Register button styling */
-[app-login-navbar] .btn-register,
+/* Register button */
 [app-login-navbar] .btn-outline-primary,
 [app-login-navbar] a[href*="register"] {
   background: transparent;
@@ -523,226 +140,8 @@
   color: #007bff !important;
 }
 
-/* Hover effects for login button */
-[app-login-navbar] .btn-login:hover,
-[app-login-navbar] .btn-primary:hover,
-[app-login-navbar] a[href*="login"]:hover {
-  background: linear-gradient(135deg, #0056b3, #004494);
-  transform: translateY(-2px); /* Updated */
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Updated */
-}
-
-/* Hover effects for register button */
-[app-login-navbar] .btn-register:hover,
-[app-login-navbar] .btn-outline-primary:hover,
-[app-login-navbar] a[href*="register"]:hover {
-  background: rgba(0, 123, 255, 0.1);
-  border-color: #0056b3;
-  color: #0056b3 !important;
-  transform: translateY(-2px); /* Updated */
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.15); /* Updated */
-}
-
-/* Active/focus states */
-[app-login-navbar] .btn:active,
-[app-login-navbar] .btn:focus,
-[app-login-navbar] button:active,
-[app-login-navbar] button:focus {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  outline: none;
-}
-
-/* Add ripple effect on click */
-[app-login-navbar] .btn::after,
-[app-login-navbar] button::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  border-radius: 100%;
-  transform: scale(1, 1) translate(-50%, -50%);
-  transform-origin: 50% 50%;
-}
-
-[app-login-navbar] .btn:focus:not(:active)::after {
-  animation: ripple 1s ease-out;
-}
-
-/* Animation for the ripple effect */
-@keyframes ripple {
-  0% {
-    transform: scale(0, 0);
-    opacity: 0.5;
-  }
-  20% {
-    transform: scale(25, 25);
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(40, 40);
-  }
-}
-
-/* Add icon to login button if it has one */
-[app-login-navbar] .btn-login i,
-[app-login-navbar] .btn-primary i,
-[app-login-navbar] a[href*="login"] i {
-  margin-right: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-[app-login-navbar] .btn-login:hover i,
-[app-login-navbar] .btn-primary:hover i,
-[app-login-navbar] a[href*="login"]:hover i {
-  transform: translateX(-3px);
-}
-
-/* Add icon to register button if it has one */
-[app-login-navbar] .btn-register i,
-[app-login-navbar] .btn-outline-primary i,
-[app-login-navbar] a[href*="register"] i {
-  margin-right: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-[app-login-navbar] .btn-register:hover i,
-[app-login-navbar] .btn-outline-primary:hover i,
-[app-login-navbar] a[href*="register"]:hover i {
-  transform: translateX(-3px);
-}
-
-/* Responsive adjustments for login buttons */
-@media (max-width: 991.98px) {
-  [app-login-navbar] {
-    margin-top: 1rem;
-    width: 100%;
-    justify-content: center;
-  }
-
-  [app-login-navbar] .btn,
-  [app-login-navbar] button,
-  [app-login-navbar] a.btn {
-    padding: 0.75rem 1.5rem;
-    margin: 0.5rem;
-    width: 45%;
-    text-align: center;
-  }
-}
-
-/* Add a subtle shine animation to the login button */
-[app-login-navbar] .btn-login::before,
-[app-login-navbar] .btn-primary::before,
-[app-login-navbar] a[href*="login"]::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
-  transform: skewX(-25deg);
-  transition: all 0.75s;
-}
-
-[app-login-navbar] .btn-login:hover::before,
-[app-login-navbar] .btn-primary:hover::before,
-[app-login-navbar] a[href*="login"]:hover::before {
-  animation: shine 1.5s infinite;
-}
-
-@keyframes shine {
-  100% {
-    left: 125%;
-  }
-}
-
-/* Add a subtle border animation to the register button */
-[app-login-navbar] .btn-register::before,
-[app-login-navbar] .btn-outline-primary::before,
-[app-login-navbar] a[href*="register"]::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid transparent;
-  border-radius: 4px; /* Updated */
-}
-
-[app-login-navbar] .btn-register:hover::before,
-[app-login-navbar] .btn-outline-primary:hover::before,
-[app-login-navbar] a[href*="register"]::before {
-  animation: borderPulse 1.5s infinite;
-}
-
-@keyframes borderPulse {
-  0% {
-    border-color: rgba(0, 123, 255, 0.6);
-    transform: scale(1);
-  }
-  50% {
-    border-color: rgba(0, 123, 255, 0.3);
-    transform: scale(1.05);
-  }
-  100% {
-    border-color: rgba(0, 123, 255, 0.6);
-    transform: scale(1);
-  }
-}
-
-/* User profile/avatar styling if logged in */
-[app-login-navbar] .user-avatar,
-[app-login-navbar] .dropdown-toggle img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid #007bff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-[app-login-navbar] .user-avatar:hover,
-[app-login-navbar] .dropdown-toggle:hover img {
-  transform: scale(1.1);
-  border-color: #0056b3;
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
-}
-
-/* User dropdown menu if logged in */
-[app-login-navbar] .dropdown-menu {
-  min-width: 200px;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  margin-top: 0.5rem;
-}
-
-[app-login-navbar] .dropdown-item {
-  border-radius: 4px; /* Updated */
-  padding: 0.6rem 1rem;
-  transition: all 0.2s ease;
-}
-
-[app-login-navbar] .dropdown-item:hover {
-  background-color: rgba(0, 123, 255, 0.1);
-  color: #007bff;
-}
-
-[app-login-navbar] .dropdown-item.logout {
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  margin-top: 0.5rem;
-  color: #dc3545;
-}
-
-[app-login-navbar] .dropdown-item.logout:hover {
-  background-color: rgba(220, 53, 69, 0.1);
-  color: #dc3545;
+/* Hover effects */
+[app-login-navbar] .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
 }
