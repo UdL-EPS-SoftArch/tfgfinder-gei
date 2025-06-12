@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TFGFinder GEI - Technical Documentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="documentation.component.css">
+</head>
+<body>
+  <div class="container">
+    <h1>TFGFinder GEI - Platform Technical Documentation</h1>
+
+    <div class="section">
+      <h2>Overview</h2>
+      <p><strong>TFGFinder GEI</strong> is a collaborative platform that connects senior university students, professors, and organizations around Final Degree Projects (FDPs). It helps students find, validate, and get support for their project ideas, and allows organizations to source academic talent to develop needed solutions.</p>
+    </div>
+
+    <div class="section">
+      <h2>Core Features</h2>
+      <ul>
+        <li>🔍 Project Search & Filtering System</li>
+        <li>📝 Student Project Proposal Submission</li>
+        <li>👨‍🏫 Professor Feedback and Mentorship</li>
+        <li>🏢 Organization Need Submission & Browsing</li>
+        <li>🤝 Project Matching and Collaboration System</li>
+        <li>📂 Personal Dashboard for Each User Type</li>
+        <li>📨 Internal Messaging System</li>
+        <li>📊 Analytics and Reporting</li>
+        <li>🔐 Secure Login & Role-based Access (TGE-based)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>User Roles & Permissions</h2>
+      <ul>
+        <li><strong>Students</strong>: Submit ideas, search opportunities, collaborate with professors or organizations.</li>
+        <li><strong>Professors</strong>: View, comment, and offer help on student proposals or organization needs.</li>
+        <li><strong>Organizations</strong>: Post real-world problems, match with student ideas or suggest their own.</li>
+        <li><strong>Admins</strong>: Manage platform, moderate content, and oversee analytics.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Technology Stack</h2>
+      <ul>
+        <li><strong>Frontend</strong>: Angular</li>
+        <li><strong>Backend</strong>:SpringBoot</li>
+        <li><strong>Database</strong>: PostgreSQL (relational structure with JSON support)</li>
+        <li><strong>Authentication</strong>: OAuth2-based system, managed via TGE's Identity Services</li>
+        <li><strong>Hosting</strong>: Cloud-native architecture with CI/CD integration</li>
+        <li><strong>API Layer</strong>: RESTful APIs for all platform services</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Data Model</h2>
+      <ul>
+        <li><strong>User</strong>: Contains user details, role, and authentication tokens.</li>
+        <li><strong>Project Idea</strong>: Stores project title, description, status, and associated user.</li>
+        <li><strong>Organization Need</strong>: Contains organization details, problem statement, and contact info.</li>
+        <li><strong>Proposal</strong>: Links students to project ideas or organization needs with status tracking.</li>
+        <li><strong>Feedback</strong>: Comments from professors or organizations on proposals or ideas.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Process Flows</h2>
+      <h3>1. Student-Initiated Project Flow</h3>
+      <ul>
+        <li>Student submits an idea</li>
+        <li>Professors and organizations browse and offer feedback</li>
+        <li>If interest exists, matching occurs via system</li>
+      </ul>
+
+      <h3>2. Organization-Initiated Project Flow</h3>
+      <ul>
+        <li>Organization posts a challenge or requirement</li>
+        <li>Students can browse and express interest</li>
+        <li>Matching system allows official collaboration</li>
+      </ul>
+
+      <h3>3. No-Idea Students</h3>
+      <ul>
+        <li>Browse ideas by others or organizations</li>
+        <li>Get inspired and choose to collaborate</li>
+        <li>Can contact original proposer to join project</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Security & Authentication</h2>
+      <p>TFGFinder GEI uses TGE's secure identity services. Each user is authenticated using OAuth 2.0 protocols and is assigned a JWT session token. User roles are enforced at the API and UI level to prevent privilege escalation.</p>
+    </div>
+
+    <div class="section">
+      <h2>Future Plans</h2>
+      <ul>
+        <li>✅ Live chat integration</li>
+        <li>✅ AI-based project idea recommendations</li>
+        <li>✅ Versioning and feedback system for project ideas</li>
+        <li>✅ Integration with university LMS systems</li>
+        <li>✅ Mobile-first interface</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

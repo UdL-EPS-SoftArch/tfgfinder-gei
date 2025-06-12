@@ -1,77 +1,55 @@
-<!-- Hero Section -->
-<section class="about-hero text-center text-dark">
-  <div class="container">
-    <h1 class="display-4"><strong>TFG</strong>Finder GEI</h1>
-    <p class="lead">The collaborative platform for managing, searching, and offering Final Degree Project proposals.</p>
-  </div>
-</section>
+<div class="container">
+  <header class="hero">
+    <h1>Welcome to TFGFinder GEI</h1>
+    <p>Connecting students, professors, and organizations to create amazing final projects together.</p>
+  </header>
 
-<!-- Purpose and Features -->
-<section class="about-content py-5">
-  <div class="container">
-    <div class="row mb-4">
-      <div class="col-md-6">
-        <h2>Purpose</h2>
-        <p>
-          Streamline the process of finding and approving Final Degree Project proposals for students, professors, and organizations,
-          centralizing all information in a single web environment.
-        </p>
+  <section class="intro">
+    <h2>What Is TFGFinder GEI?</h2>
+    <p>
+      TFGFinder GEI is a platform made to help university students find the right project for their Final Degree Project (FDP), get support from professors, and collaborate with real companies. Whether you already have an idea or are looking for inspiration, we’re here to guide your journey.
+    </p>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <ul>
+      <li><strong>Students:</strong> Share your project ideas or explore topics from others and organizations.</li>
+      <li><strong>Professors:</strong> Support students by giving feedback, guidance, and mentorship.</li>
+      <li><strong>Organizations:</strong> Post real-world challenges and find fresh ideas from talented students.</li>
+    </ul>
+  </section>
+
+  <section class="why-join">
+    <h2>Why Join TFGFinder GEI?</h2>
+    <p>
+      Final projects can be difficult — finding a topic, building it, and making it valuable. TFGFinder GEI helps by offering:
+    </p>
+    <div class="benefits">
+      <div class="card">
+        <h3>💬 Easy Communication</h3>
+        <p>Talk directly with professors and companies to get support and feedback.</p>
       </div>
-      <div class="col-md-6">
-        <h2>Features</h2>
-        <ul>
-          <li>User registration and login (students, professors, organizations).</li>
-          <li>Proposal publication and editing.</li>
-          <li>Search proposal by keyword, category, and author.</li>
-          <li>Interest management and approvals.</li>
-          <li>And more to come...</li>
-        </ul>
+      <div class="card">
+        <h3>🎯 Find the Right Project</h3>
+        <p>Browse many ideas, challenges, and opportunities tailored to your interests.</p>
+      </div>
+      <div class="card">
+        <h3>🤝 Real Collaboration</h3>
+        <p>Work with others to turn your academic work into something real and impactful.</p>
       </div>
     </div>
+  </section>
 
-    <!-- Repositories -->
-    <div class="row">
-      <div class="col-md-6 mb-4">
-        <div class="card h-100 text-center">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Spring Back-End</h5>
-            <p class="card-text flex-grow-1">
-              The API built with Spring Boot and Spring Data for managing users, proposals, and authorizations.
-            </p>
-            <a
-              href="https://github.com/UdL-EPS-SoftArch/tfgfinder-gei-api"
-              target="_blank"
-              class="btn btn-outline-primary mt-auto"
-            >
-              View Code
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 mb-4">
-        <div class="card h-100 text-center">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Angular Front-End</h5>
-            <p class="card-text flex-grow-1">
-              The Angular SPA consuming the API and offering a modern, responsive user experience.
-            </p>
-            <a
-              href="https://github.com/UdL-EPS-SoftArch/tfgfinder-gei"
-              target="_blank"
-              class="btn btn-outline-primary mt-auto"
-            >
-              View Code
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <section class="get-started">
+    <h2>Get Started Today</h2>
+    <p>
+      Whether you're a student ready to build your future, a professor passionate about mentoring, or a company looking for innovative minds — TFGFinder GEI is your space to connect and grow.
+    </p>
+    <a [routerLink]="['/users/create']" class="button">Join Now</a>
+  </section>
 
-<!-- Footer -->
-<footer class="footer py-3">
-  <div class="container text-center">
-    <small>© 2025 TFGFinder GEI · SoftArch Group, UdL</small>
-  </div>
-</footer>
+  <footer>
+    <p>&copy; 2025 TFGFinder GEI. Supporting students every step of the way.</p>
+  </footer>
+</div>

@@ -14,6 +14,7 @@ import { ProposalCreateComponent } from "./proposal/proposal-create/proposal-cre
 import { ShowInterestsComponent } from "./interest/show-interests/show-interests.component";
 import { ChatListComponent } from "./chats/chat-list/chat-list.component";
 import { ChatDetailComponent } from "./chats/chat-detail/chat-detail.component";
+import { DocumentationComponent } from './documentation/documentation.component';
 import { InviteListComponent } from "./invite/invite-list/invite-list.component";
 import { ReceivedInvitesComponent } from "./invite/received-invites/received-invites.component";
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'interests', component: ShowInterestsComponent, canActivate: [LoggedInGuard]},
   { path: 'proposals', component: ProposalListComponent, canActivate: [LoggedInGuard]},
   { path: 'about', component: AboutComponent},
+  { path: 'documentation', component: DocumentationComponent},
   { path: '404', component: NotFoundComponent},
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'chats', component: ChatListComponent },
