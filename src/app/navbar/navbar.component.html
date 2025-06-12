@@ -38,9 +38,11 @@
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Invites</a>
         <div class="dropdown-menu" aria-labelledby="inviteDropdown" ngbDropdownMenu>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/invites']"> Send Invites</a>
+             [routerLink]="['/invites']"><span class="fas fa-envelope"></span> Send Invites</a>
           <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/received-invites']"> Show Invites</a>
+             [routerLink]="['/received-invites']"><span class="fas fa-inbox"></span> Received Invites</a>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/invite-list']"><span class="fas fa-list"></span> List all</a>
         </div>
       </li>
       <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
@@ -53,20 +55,8 @@
             <span class="fas fa-plus-circle"></span> Create Proposal
           </a>
         </div>
+      </li>
 
-      </li>
-      <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
-        <a class="nav-link dropdown-toggle" id="inviteDropdown" role="button"
-           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Invite</a>
-        <div class="dropdown-menu" aria-labelledby="inviteDropdown" ngbDropdownMenu>
-          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
-             [routerLink]="['/invite-list']"><span class="fas fa-list"></span> List</a>
-          <a class="dropdown-item" routerLink="/invite-list/create" routerLinkActive="active">
-            <span class="fas fa-plus-circle"></span> Create Invite
-          </a>
-        </div>
-      </li>
-      
     </ul>
     <ul class="navbar-nav ms-auto me-3" app-login-navbar></ul>
   </div>
