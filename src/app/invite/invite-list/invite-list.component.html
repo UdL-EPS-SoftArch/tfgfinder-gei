@@ -1,0 +1,51 @@
+<div class="container mt-4">
+  <h2>My Proposals</h2>
+
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error && proposals.length === 0" class="alert alert-info" role="alert">
+    You don't have any proposals yet. Create one to start inviting users!
+  </div>
+
+  <div *ngIf="!loading && !error && proposals.length > 0" class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Invite Users</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proposal of proposals">
+          <td>{{ proposal.title }}</td>
+          <td>{{ proposal.description }}</td>
+          <td>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="inviteInputs[proposal.id]"
+                placeholder="Enter username"
+              />
+              <button
+                class="btn btn-primary"
+                (click)="sendInvite(proposal)"
+              >
+                Send
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> 
