@@ -1,7 +1,147 @@
-.nav-item{
-  cursor:pointer;
+/* Streamlined navbar styling with the same visual identity */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
-.dropdown-item:hover{
+
+/* Brand styling */
+.navbar-brand {
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand b {
+  font-weight: 800;
+  color: #0056b3;
+  position: relative;
+}
+
+/* Nav links */
+.nav-link {
+  padding: 1.25rem 1rem !important;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s;
+  color: #495057 !important;
+}
+
+.nav-link:hover {
+  color: #007bff !important;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #007bff;
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Active link */
+.nav-item.active .nav-link {
+  color: #007bff !important;
+}
+
+.nav-item.active .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background-color: #007bff;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin: 4px 0;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
   background: #007bff;
   color: white;
+  transform: translateX(4px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: rgba(248, 249, 250, 0.98);
+    padding: 1rem;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-menu {
+    border-left: 2px solid #007bff;
+    box-shadow: none;
+  }
+  
+  [app-login-navbar] {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Auth buttons */
+[app-login-navbar] .btn,
+[app-login-navbar] a.btn {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Login button */
+[app-login-navbar] .btn-primary,
+[app-login-navbar] a[href*="login"] {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  color: white !important;
+}
+
+/* Register button */
+[app-login-navbar] .btn-outline-primary,
+[app-login-navbar] a[href*="register"] {
+  background: transparent;
+  border: 2px solid #007bff;
+  color: #007bff !important;
+}
+
+/* Hover effects */
+[app-login-navbar] .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
 }

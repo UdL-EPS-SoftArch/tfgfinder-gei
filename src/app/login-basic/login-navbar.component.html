@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="./login-navbar.component.css">
+
+
 <li class="nav-item" *ngIf="isLoggedIn()" id="currentUser">
   <a class="nav-link" [routerLink]="['/users', getCurrentUser().username]">
     <span class="fas fa-user-circle"></span> {{getCurrentUser().username}}</a>
