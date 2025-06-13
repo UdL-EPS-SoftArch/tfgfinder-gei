@@ -80,8 +80,8 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "buildTarget": "tfgfinder-gei:build"
+  "options": {
+    "proxyConfig": "proxy.conf.json" 
           },
           "configurations": {
             "production": {

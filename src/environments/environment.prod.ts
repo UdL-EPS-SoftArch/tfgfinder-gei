@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API: 'https://tfgfinder-gei-api.fly.dev'
+  API: '/api' // For production deployment
 };
