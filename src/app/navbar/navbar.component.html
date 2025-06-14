@@ -57,6 +57,17 @@
         </div>
       </li>
 
+      <li class="nav-item" ngbDropdown>
+        <a class="nav-link dropdown-toggle" id="categoryDropdown" role="button"
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Categorías</a>
+        <div class="dropdown-menu" aria-labelledby="categoryDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" routerLink="/categories" routerLinkActive="active">
+            <span class="fas fa-list"></span> Listar Categorías
+          </a>
+        </div>
+      </li>
+
+
     </ul>
     <ul class="navbar-nav ms-auto me-3" app-login-navbar></ul>
   </div>

@@ -11,11 +11,11 @@ export class Proposal extends Resource {
   kind: string;
   keywords: string;
   owner: string | User;
-  student?: string;
-  director?: string;
-  codirector?: string;
+  student?: string | Resource;
+  director?: string | Resource;
+  codirector?: string | Resource;
   chat?: string;
-  categories: number[] = [];
+  categories: string[] = [];
 
   constructor(values: object = {}) {
     super();

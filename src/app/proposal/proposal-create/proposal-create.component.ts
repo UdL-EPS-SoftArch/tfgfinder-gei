@@ -5,6 +5,7 @@ import { Proposal } from '../proposal';
 import { Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-proposal-create',
@@ -20,7 +21,8 @@ export class ProposalCreateComponent implements OnInit {
   constructor(
     private router: Router,
     private location: Location,
-    private proposalService: ProposalService
+    private proposalService: ProposalService,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -28,20 +30,46 @@ export class ProposalCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.proposal.categories = this.categoriesInput
+    const categoryNames = this.categoriesInput
       .split(',')
-      .map(id => parseInt(id.trim(), 10))
-      .filter(id => !isNaN(id));
+      .map(name => name.trim())
+      .filter(name => !!name);
 
-    this.proposalService.createResource({ body: this.proposal }).subscribe({
-      next: () => {
-        this.router.navigate(['/proposals'], { queryParams: { refresh: true } }); // Add query param to force refresh
-      },
-      error: (error) => {
-        this.errorMessage = 'Failed to create proposal. Please try again.';
-        console.error('Failed to create proposal:', error);
-      }
-    });
+    const categoryRequests = categoryNames.map(name =>
+      this.http.get<any>(`/categories/search/findByName?name=${name}`).toPromise()
+    );
+
+    Promise.all(categoryRequests)
+      .then(responses => {
+        this.proposal.categories = responses.map(res => res._links.self.href);
+
+        if (this.proposal.owner) {
+          this.proposal.owner = `/users/${this.proposal.owner}`;
+        }
+        if (this.proposal.student) {
+          this.proposal.student = `/students/${this.proposal.student}`;
+        }
+        if (this.proposal.director) {
+          this.proposal.director = `/professors/${this.proposal.director}`;
+        }
+        if (this.proposal.codirector) {
+          this.proposal.codirector = `/directors/${this.proposal.codirector}`;
+        }
+
+        this.proposalService.createResource({ body: this.proposal }).subscribe({
+          next: () => {
+            this.router.navigate(['/proposals'], { queryParams: { refresh: true } });
+          },
+          error: (error) => {
+            this.errorMessage = 'Failed to create proposal. Please try again.';
+            console.error('Failed to create proposal:', error);
+          }
+        });
+      })
+      .catch(err => {
+        this.errorMessage = 'One or more category names could not be resolved.';
+        console.error('Category resolution error:', err);
+      });
   }
 
   onCancel(): void {
