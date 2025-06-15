@@ -11,6 +11,7 @@ import { filter } from 'rxjs/operators';
   selector: 'app-proposal-list',
   templateUrl: './proposal-list.component.html',
   standalone: true,
+  styleUrls: ['./proposal-list.component.css'],
   imports: [RouterLink, NgbPagination, NgForOf, CommonModule],
 })
 export class ProposalListComponent implements OnInit {
