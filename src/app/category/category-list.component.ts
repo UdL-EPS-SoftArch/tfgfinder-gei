@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService, Category } from './category.service';
+import { CategoryService } from './category.service';
+import { Category } from './category';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +15,7 @@ export class CategoryListComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe({
-      next: data => this.categories = data._embedded.categories,
+      next: data => this.categories = data.resources,
       error: err => this.error = 'Failed to load categories.'
     });
   }

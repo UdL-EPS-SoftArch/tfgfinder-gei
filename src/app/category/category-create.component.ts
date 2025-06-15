@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CategoryService, Category } from './category.service';
+import { CategoryService } from './category.service';
+import { Category } from './category';
 
 @Component({
   selector: 'app-category-create',
@@ -11,7 +12,7 @@ import { CategoryService, Category } from './category.service';
   templateUrl: './category-create.component.html'
 })
 export class CategoryCreateComponent {
-  category: Category = { name: '', description: '' };
+  category: Category = new Category ();
   error: string | null = null;
 
   constructor(
@@ -24,7 +25,7 @@ export class CategoryCreateComponent {
       this.error = 'Name is required.';
       return;
     }
-    this.categoryService.create(this.category).subscribe({
+    this.categoryService.createCategory(this.category).subscribe({
       next: () => this.router.navigate(['/categories']),
       error: () => this.error = 'Failed to create category.'
     });

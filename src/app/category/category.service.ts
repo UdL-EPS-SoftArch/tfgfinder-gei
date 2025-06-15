@@ -1,32 +1,62 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
-export interface Category {
-  id?: number;
-  name: string;
-  description?: string;
-}
+import {
+  HateoasResourceOperation,
+  ResourceCollection
+} from '@lagoshny/ngx-hateoas-client';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Category } from './category';
 
 @Injectable({ providedIn: 'root' })
-export class CategoryService {
-  private baseUrl = '/categories';
-
-  constructor(private http: HttpClient) {}
-
-  getAll(): Observable<any> {
-    return this.http.get<any>(this.baseUrl);
+export class CategoryService extends HateoasResourceOperation<Category> {
+  constructor() {
+    super(Category);
   }
 
-  get(id: number): Observable<Category> {
-    return this.http.get<Category>(`${this.baseUrl}/${id}`);
+  getAll(): Observable<ResourceCollection<Category>> {
+    return this.getCollection().pipe(
+      catchError(error => {
+        console.error('Error fetching categories:', error);
+        return throwError(() => new Error('Failed to load categories.'));
+      })
+    );
   }
 
-  update(id: number, category: Category): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/${id}`, category);
+  getResourceById(id: number): Observable<Category> {
+    return this.getResource(id).pipe(
+      catchError(error => {
+        console.error('Error fetching category:', error);
+        return throwError(() => new Error('Failed to load category.'));
+      })
+    );
   }
 
-  create(category: Category): Observable<any> {
-    return this.http.post(this.baseUrl, category);
+  createCategory(category: Category): Observable<Category> {
+    return this.createResource({ body: category }).pipe(
+      catchError(error => {
+        console.error('Error creating category:', error);
+        return throwError(() => new Error('Failed to create category.'));
+      })
+    );
   }
-} 
+
+  updateCategory(category: Category): Observable<Category> {
+    return this.updateResource(category).pipe(
+      catchError(error => {
+        console.error('Error updating category:', error);
+        return throwError(() => new Error('Failed to update category.'));
+      })
+    );
+  }
+
+  findByName(name: string): Observable<ResourceCollection<Category>> {
+    return this.searchCollection('findByName', {
+      params: { name }
+    }).pipe(
+      catchError(error => {
+        console.error('Error searching category by name:', error);
+        return throwError(() => new Error('Failed to search category.'));
+      })
+    );
+  }
+}

@@ -57,12 +57,12 @@
         </div>
       </li>
 
-      <li class="nav-item" ngbDropdown>
+      <li class="nav-item" *ngIf="isRole('admin')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="categoryDropdown" role="button"
-           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Categorías</a>
+           aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Categories</a>
         <div class="dropdown-menu" aria-labelledby="categoryDropdown" ngbDropdownMenu>
           <a class="dropdown-item" routerLink="/categories" routerLinkActive="active">
-            <span class="fas fa-list"></span> Listar Categorías
+            <span class="fas fa-list"></span> List Categories
           </a>
         </div>
       </li>
