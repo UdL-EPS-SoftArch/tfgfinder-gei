@@ -45,6 +45,7 @@
              [routerLink]="['/invite-list']"><span class="fas fa-list"></span> List all</a>
         </div>
       </li>
+
       <li class="nav-item" *ngIf="isRole('user')" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="proposalDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Proposals</a>
@@ -61,12 +62,12 @@
         <a class="nav-link dropdown-toggle" id="categoryDropdown" role="button"
            aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Categories</a>
         <div class="dropdown-menu" aria-labelledby="categoryDropdown" ngbDropdownMenu>
-          <a class="dropdown-item" routerLink="/categories" routerLinkActive="active">
-            <span class="fas fa-list"></span> List Categories
-          </a>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/categories']"><span class="fas fa-proposal-circle"></span> List</a>
+          <a class="dropdown-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }"
+             [routerLink]="['/categories/create']"><span class="fas fa-list"></span> Create category</a>
         </div>
       </li>
-
 
     </ul>
     <ul class="navbar-nav ms-auto me-3" app-login-navbar></ul>

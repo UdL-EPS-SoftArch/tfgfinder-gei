@@ -40,8 +40,8 @@ const routes: Routes = [
   { path: 'invites', component: InviteListComponent, canActivate: [LoggedInGuard] },
   { path: 'received-invites', component: ReceivedInvitesComponent, canActivate: [LoggedInGuard] },
   { path: 'categories', component: CategoryListComponent },
-  { path: 'categories/:id/edit', component: CategoryEditComponent },
   { path: 'categories/create', component: CategoryCreateComponent, canActivate: [LoggedInGuard] },
+  { path: 'categories/:id/edit', component: CategoryEditComponent },
 ];
 
 @NgModule({

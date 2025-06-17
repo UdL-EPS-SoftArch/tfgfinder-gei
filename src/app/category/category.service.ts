@@ -13,8 +13,8 @@ export class CategoryService extends HateoasResourceOperation<Category> {
     super(Category);
   }
 
-  getAll(): Observable<ResourceCollection<Category>> {
-    return this.getCollection().pipe(
+  public getAll(): Observable<ResourceCollection<Category>> {
+    return this.getPage({ pageParams: { page: 0, size: 100 } }).pipe(
       catchError(error => {
         console.error('Error fetching categories:', error);
         return throwError(() => new Error('Failed to load categories.'));
@@ -22,7 +22,7 @@ export class CategoryService extends HateoasResourceOperation<Category> {
     );
   }
 
-  getResourceById(id: number): Observable<Category> {
+  public getResourceById(id: number): Observable<Category> {
     return this.getResource(id).pipe(
       catchError(error => {
         console.error('Error fetching category:', error);
@@ -31,7 +31,7 @@ export class CategoryService extends HateoasResourceOperation<Category> {
     );
   }
 
-  createCategory(category: Category): Observable<Category> {
+  public createCategory(category: Category): Observable<Category> {
     return this.createResource({ body: category }).pipe(
       catchError(error => {
         console.error('Error creating category:', error);
@@ -40,7 +40,7 @@ export class CategoryService extends HateoasResourceOperation<Category> {
     );
   }
 
-  updateCategory(category: Category): Observable<Category> {
+  public updateCategory(category: Category): Observable<Category> {
     return this.updateResource(category).pipe(
       catchError(error => {
         console.error('Error updating category:', error);
@@ -49,7 +49,7 @@ export class CategoryService extends HateoasResourceOperation<Category> {
     );
   }
 
-  findByName(name: string): Observable<ResourceCollection<Category>> {
+  public findByName(name: string): Observable<ResourceCollection<Category>> {
     return this.searchCollection('findByName', {
       params: { name }
     }).pipe(
