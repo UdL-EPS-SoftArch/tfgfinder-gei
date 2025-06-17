@@ -6,9 +6,10 @@ import {Router} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  imports: [FormsModule, NgIf],
-    selector: 'app-login-form',
-    templateUrl: './login-form.component.html'
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css'],
+  imports: [FormsModule, NgIf]
 })
 export class LoginFormComponent implements OnInit {
   user: User;

@@ -7,9 +7,10 @@ import { Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  imports: [ FormsModule ],
   selector: 'app-user-register',
-  templateUrl: './user-register.component.html'
+  templateUrl: './user-register.component.html',
+  styleUrls: ['./user-register.component.css'], 
+  imports: [ FormsModule ]
 })
 export class UserRegisterComponent implements OnInit {
   public user: User;
