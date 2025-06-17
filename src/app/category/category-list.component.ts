@@ -2,9 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from './category.service';
 import { Category } from './category';
 import { Router } from '@angular/router';
+import { NgForOf, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-category-list',
+  imports: [
+    NgForOf,
+    NgIf
+  ],
   templateUrl: './category-list.component.html'
 })
 export class CategoryListComponent implements OnInit {
