@@ -4,7 +4,7 @@ import {NgxHateoasClientConfigurationService, NgxHateoasClientModule} from '@lag
 import {environment} from '../environments/environment';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {NgbCollapseModule, NgbDropdownModule, NgbModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import {LoginBasicModule} from './login-basic/login-basic.module';
 import {ErrorHandlerModule} from './error-handler/error-handler.module';

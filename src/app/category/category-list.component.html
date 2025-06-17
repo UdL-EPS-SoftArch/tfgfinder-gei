@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Category List</h2>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <table class="table table-bordered" *ngIf="categories.length">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let category of categories">
+      <td>{{ category.name }}</td>
+      <td>{{ category.description }}</td>
+      <td>
+        <button class="btn btn-sm btn-primary" (click)="editCategory(category)">Edit</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

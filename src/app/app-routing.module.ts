@@ -17,6 +17,8 @@ import { ChatDetailComponent } from "./chats/chat-detail/chat-detail.component";
 import { DocumentationComponent } from './documentation/documentation.component';
 import { InviteListComponent } from "./invite/invite-list/invite-list.component";
 import { ReceivedInvitesComponent } from "./invite/received-invites/received-invites.component";
+import {CategoryEditComponent, CategoryListComponent} from "./category";
+import {CategoryCreateComponent} from "./category/category-create.component";
 
 const routes: Routes = [
   { path: 'users/create', component: UserRegisterComponent},
@@ -37,6 +39,9 @@ const routes: Routes = [
   { path: 'chats/:id', component: ChatDetailComponent },
   { path: 'invites', component: InviteListComponent, canActivate: [LoggedInGuard] },
   { path: 'received-invites', component: ReceivedInvitesComponent, canActivate: [LoggedInGuard] },
+  { path: 'categories', component: CategoryListComponent },
+  { path: 'categories/create', component: CategoryCreateComponent, canActivate: [LoggedInGuard] },
+  { path: 'categories/:id/edit', component: CategoryEditComponent },
 ];
 
 @NgModule({
