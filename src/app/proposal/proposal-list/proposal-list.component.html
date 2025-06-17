@@ -1,19 +1,29 @@
-
-<div class="card mb-1" *ngFor="let proposal of proposals">
-  <div class="card-block row m-1 col-12">
+<div class="proposal-list-container">
+  <div class="card proposal-card mb-3" *ngFor="let proposal of proposals">
     <div class="card-body row align-items-center">
-      <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Title</h6>
-        <a class="card-text" [routerLink]="['/proposals', proposal.id]">{{proposal.title}}</a>
+      <div class="col-6">
+        <h6 class="card-subtitle">Title</h6>
+        <a
+          class="card-text"
+          [routerLink]="proposal.uri"
+        >
+          {{ proposal.title }}
+        </a>
       </div>
-      <div class="col-6 mt-1">
-        <h6 class="card-subtitle text-muted">Owner</h6>
-        <p class="card-text">{{proposal.owner}}</p>
+      <div class="col-6">
+        <h6 class="card-subtitle">Owner</h6>
+        <p class="card-text">
+          {{ proposal.owner?.username || '—' }}
+        </p>
       </div>
     </div>
   </div>
-</div>
 
-<ngb-pagination class="d-flex justify-content-center"
-                [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalProposals"
-                (pageChange)="changePage()"></ngb-pagination>
+  <ngb-pagination
+    class="d-flex justify-content-center pagination-styled"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="totalProposals"
+    (pageChange)="changePage()"
+  ></ngb-pagination>
+</div>

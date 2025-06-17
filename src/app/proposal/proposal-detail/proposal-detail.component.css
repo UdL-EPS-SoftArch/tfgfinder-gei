@@ -1,0 +1,65 @@
+
+/* Contenidor principal: centrat i amb marge superior */
+.proposal-detail-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+/* Alerta d’error personalitzada */
+.error-alert {
+  border-radius: 0.5rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Targeta de detall */
+.detail-card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Capçalera amb fons suau */
+.detail-header {
+  background-color: #f8f9fc;
+  padding: 1.5rem;
+}
+.detail-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+/* Cos de la card: seccions en filera */
+.detail-body {
+  padding: 1.5rem;
+}
+.detail-col {
+  margin-bottom: 1rem;
+}
+
+/* Etiquetes de cada camp */
+.detail-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+/* Text dels valors */
+.detail-text {
+  font-size: 1rem;
+  margin: 0;
+  color: #495057;
+}
+
+/* Responsiu: en pantalles petites, apila en columnes */
+@media (max-width: 576px) {
+  .detail-body {
+    flex-direction: column;
+  }
+}

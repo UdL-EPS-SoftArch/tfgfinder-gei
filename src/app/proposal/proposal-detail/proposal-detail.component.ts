@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-proposal-detail',
   templateUrl: './proposal-detail.component.html',
+  styleUrls: ['./proposal-detail.component.css'],
   standalone: true,
   imports: [CommonModule], // Add necessary imports
 })
