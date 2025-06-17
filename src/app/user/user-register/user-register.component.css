@@ -1,106 +1,95 @@
-/* Simple User Form Styles */
+/* login-form.component.css */
 
-#user-form {
+/* 1) Contenidor centrat horitzontalment, amb marge a dalt */
+.login-container {
   max-width: 400px;
-  margin: 2rem auto;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+}
+
+/* 2) Targeta amb ombra i cantonades */
+.login-card {
+  background: #ffffff;
   padding: 2rem;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
-  margin-bottom: 1rem;
+/* 3) Títol i subtítol */
+.login-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.25rem;
 }
 
-.control-label {
-  display: block;
-  margin-bottom: 0.5rem;
+.login-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* 4) Inputs */
+.form-group label {
   font-weight: 500;
-  color: #333;
 }
 
 .form-control {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .form-control:focus {
-  border-color: #007bff;
   outline: none;
-}
-
-.was-validated .form-control:invalid {
-  border-color: #dc3545;
+  border-color: #4e73df;
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
 }
 
 .invalid-feedback {
-  color: #dc3545;
+  color: #e74c3c;
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
 
-.was-validated .form-control:invalid ~ .invalid-feedback {
-  display: block;
+/* 5) Botons “pill” */
+.btn-pill {
+  display: inline-block;
+  border-radius: 50rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
 }
 
-.fa-pull-right {
-  text-align: right;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
-}
-
-.btn {
-  padding: 0.75rem 1.5rem;
+/* Submit (blau) */
+.btn-pill.btn-primary {
+  background-color: #4e73df;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
+  color: #fff;
+}
+.btn-pill.btn-primary:hover,
+.btn-pill.btn-primary:focus {
+  background-color: #435ed1;
 }
 
-.btn-outline-primary {
-  background: transparent;
-  color: #007bff;
-  border: 1px solid #007bff;
-  margin-right: 0.5rem;
+/* Cancel (blanc amb borde) */
+.btn-pill.btn-light {
+  background-color: #f8f9fc;
+  color: #333;
+  border: 1px solid #ddd;
+}
+.btn-pill.btn-light:hover,
+.btn-pill.btn-light:focus {
+  background-color: #e2e6ea;
 }
 
-.btn-outline-primary:hover {
-  background: #007bff;
-  color: white;
-}
-
-.btn-success {
-  background: #28a745;
-  color: white;
-}
-
-.btn:hover {
-  opacity: 0.9;
-}
-
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-@media (max-width: 576px) {
-  #user-form {
-    margin: 1rem;
-    padding: 1.5rem;
-  }
-  
-  .fa-pull-right {
-    text-align: center;
-  }
-  
-  .btn {
-    display: block;
-    width: 100%;
-    margin: 0.25rem 0;
-  }
+/* 6) Aliniació botons */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
 }
