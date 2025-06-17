@@ -14,7 +14,7 @@ export class CategoryService extends HateoasResourceOperation<Category> {
   }
 
   getAll(): Observable<ResourceCollection<Category>> {
-    return this.getCollection().pipe(
+    return this.getPage({ pageParams: { page: 0, size: 100 } }).pipe(
       catchError(error => {
         console.error('Error fetching categories:', error);
         return throwError(() => new Error('Failed to load categories.'));
