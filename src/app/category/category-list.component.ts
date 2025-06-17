@@ -26,6 +26,6 @@ export class CategoryListComponent implements OnInit {
   }
 
   editCategory(category: Category): void {
-    this.router.navigate(['/categories', category.id, 'edit']);
+    this.router.navigate([category.uri, 'edit']);
   }
 }
