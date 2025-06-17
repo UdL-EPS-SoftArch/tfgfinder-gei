@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { ProposalService } from '../proposal.service';
 import { Proposal } from '../proposal';
 import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { NgForOf, CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
+import { User } from '../../login-basic/user';
 
 @Component({
   selector: 'app-proposal-list',
-  templateUrl: './proposal-list.component.html',
   standalone: true,
-  styleUrls: ['./proposal-list.component.css'],
-  imports: [RouterLink, NgbPagination, NgForOf, CommonModule],
+  imports: [NgForOf, CommonModule, NgbPagination],
+  templateUrl: './proposal-list.component.html',
+  styleUrls: ['./proposal-list.component.css']
 })
 export class ProposalListComponent implements OnInit {
   proposals: Proposal[] = [];
@@ -21,15 +22,14 @@ export class ProposalListComponent implements OnInit {
   totalProposals = 0;
 
   constructor(
-    public router: Router,
+    private router: Router,
     private proposalService: ProposalService
   ) {}
 
   ngOnInit(): void {
-    // Load initial data
     this.loadProposals();
 
-    // Subscribe to navigation events to refresh list
+    
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -41,23 +41,30 @@ export class ProposalListComponent implements OnInit {
 
   loadProposals(): void {
     this.proposalService
-      .getPage({ pageParams: { page: this.page - 1, size: this.pageSize }, sort: { title: 'ASC' } })
+      .getPage({
+        pageParams: { page: this.page - 1, size: this.pageSize },
+        sort: { title: 'ASC' }
+      })
       .subscribe({
         next: (page: PagedResourceCollection<Proposal>) => {
           this.proposals = page.resources;
           this.totalProposals = page.totalElements;
+
+          this.proposals.forEach(proposal => {
+            if (proposal.hasRelation('owner')) {
+              proposal
+                .getRelation<User>('owner')
+                .subscribe(ownerUser => {
+                  proposal.owner = ownerUser;
+                });
+            }
+          });
         },
-        error: (error) => {
-          console.error('Error loading proposals:', error);
-        }
+        error: err => console.error('Error loading proposals:', err)
       });
   }
 
   changePage(): void {
     this.loadProposals();
-  }
-
-  detail(proposal: Proposal): void {
-    this.router.navigate(['proposals', proposal.id]);
   }
 }

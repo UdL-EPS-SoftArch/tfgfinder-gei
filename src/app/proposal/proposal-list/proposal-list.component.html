@@ -3,13 +3,18 @@
     <div class="card-body row align-items-center">
       <div class="col-6">
         <h6 class="card-subtitle">Title</h6>
-        <a class="card-text" [routerLink]="['/proposals', proposal.id]">
+        <a
+          class="card-text"
+          [routerLink]="proposal.uri"
+        >
           {{ proposal.title }}
         </a>
       </div>
       <div class="col-6">
         <h6 class="card-subtitle">Owner</h6>
-        <p class="card-text">{{ proposal.owner }}</p>
+        <p class="card-text">
+          {{ proposal.owner?.username || '—' }}
+        </p>
       </div>
     </div>
   </div>
