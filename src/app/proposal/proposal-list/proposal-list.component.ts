@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { ProposalService } from '../proposal.service';
 import { Proposal } from '../proposal';
 import { PagedResourceCollection } from '@lagoshny/ngx-hateoas-client';
@@ -11,7 +11,7 @@ import { User } from '../../login-basic/user';
 @Component({
   selector: 'app-proposal-list',
   standalone: true,
-  imports: [NgForOf, CommonModule, NgbPagination],
+  imports: [NgForOf, CommonModule, NgbPagination, RouterLink],
   templateUrl: './proposal-list.component.html',
   styleUrls: ['./proposal-list.component.css']
 })
@@ -29,7 +29,7 @@ export class ProposalListComponent implements OnInit {
   ngOnInit(): void {
     this.loadProposals();
 
-    
+
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
